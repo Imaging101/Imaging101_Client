@@ -1,0 +1,3 @@
+33|ImportUser|C:\IMAGING101DEMO\SAMPLES\BI-TONAL\00001.tif|Field1|Field2|Field3|Field4|Field5|Field6|Field7|Field8|
+51|ImportUser|C:\IMAGING101DEMO\SAMPLES\BI-TONAL\00001.tif|Field1|Field2|Field3|Field4|Field5|
+33|ImportUser|C:\IMAGING101DEMO\SAMPLES\BI-TONAL\00001.tif|Field1|Field2|Field3|Field4|Field5|Field6|Field7|Field8|

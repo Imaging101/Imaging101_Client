@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UpgradeLog>
+  <Settings>
+    <Setting Name="LogFile" Value="Imaging101.log" />
+    <Setting Name="GenerateInterfacesForClasses" Value="FALSE" />
+    <Setting Name="ProjectName" Value="Imaging101" />
+    <Setting Name="OutputName" Value="Imaging101.csproj" />
+    <Setting Name="OutputDir" />
+    <Setting Name="ProjectPath" Value="C:\Workarea\Jacob\PROGRAM\Imaging101\Imaging101.vbp" />
+    <Setting Name="MigrateProjectTo" Value="WinExe" />
+  </Settings>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ISpicerMarkup.bas" NewPath="ISpicerMarkup.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\MainMDIForm.frm" NewPath="MainMDIForm.cs" FileType="MDI Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmAnnotate.frm" NewPath="frmAnnotate.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IDocContents.bas" NewPath="IDocContents.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IDocProperties.bas" NewPath="IDocProperties.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IDocSave.bas" NewPath="IDocSave.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IFileProperties.bas" NewPath="IFileProperties.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IDocControl.bas" NewPath="IDocControl.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IGroupFunctions.bas" NewPath="IGroupFunctions.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IBatchTools.bas" NewPath="IBatchTools.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IHotspots.bas" NewPath="IHotspots.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IINIColdFormatting.bas" NewPath="IINIColdFormatting.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IINIFilePreferences.bas" NewPath="IINIFilePreferences.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IINIVectorPens.bas" NewPath="IINIVectorPens.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ILayerDisplay.bas" NewPath="ILayerDisplay.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IActivePage.bas" NewPath="IActivePage.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IMiscellaneous.bas" NewPath="IMiscellaneous.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IPrintView.bas" NewPath="IPrintView.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IScaleScrollRotation.bas" NewPath="IScaleScrollRotation.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ISimplifyView.bas" NewPath="ISimplifyView.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ISpicerConfiguration.bas" NewPath="ISpicerConfiguration.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ISpicerDoc.bas" NewPath="ISpicerDoc.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ISpicerEdit.bas" NewPath="ISpicerEdit.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ISpicerView.bas" NewPath="ISpicerView.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IVectorEdit.bas" NewPath="IVectorEdit.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IVectorProperties.bas" NewPath="IVectorProperties.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\FunctionDeclarations.bas" NewPath="FunctionDeclarations.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\VariableDeclarations.bas" NewPath="VariableDeclarations.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmIndex.frm" NewPath="frmIndex.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\PrivateProfile.bas" NewPath="PrivateProfile.cs" FileType="Module" Upgraded="True">
+    <Section Name="(Parsing)">
+      <Issue Type="ToDo" Number="1035" Qty="1">#If #EndIf block was not upgraded because the expression Else did not evaluate to True or was not evaluated.</Issue>
+    </Section>
+  </File>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmLogin.frm" NewPath="frmLogin.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmBatchList.frm" NewPath="frmBatchList.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\modQuickFields.bas" NewPath="modQuickFields.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDocTypeList.frm" NewPath="frmDocTypeList.cs" FileType="Form" Upgraded="True">
+    <Section Name="(Layout)">
+      <Issue Type="Design" Number="2064" ObjectName="DataComboAreaList" ObjectType="DataCombo" PME="Bindings" Qty="1">DataCombo property DataComboAreaList.Bindings was not upgraded.</Issue>
+    </Section>
+  </File>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmLookupList.frm" NewPath="frmLookupList.cs" FileType="Form" Upgraded="True">
+    <Section Name="(Layout)">
+      <Issue Type="Design" Number="2064" ObjectName="grdDataGrid" ObjectType="DataGrid" PME="Bindings" Qty="1">DataGrid property grdDataGrid.Bindings was not upgraded.</Issue>
+    </Section>
+  </File>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\IUserTools.bas" NewPath="IUserTools.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmCommitStatus.frm" NewPath="frmCommitStatus.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\FTP.frm" NewPath="FTP.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmMainMenu.frm" NewPath="frmMainMenu.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frm101DBMaint.frm" NewPath="frm101DBMaint.cs" FileType="Form" Upgraded="True">
+    <Section Name="(Layout)">
+      <Issue Type="Design" Number="2064" ObjectName="grdDataGrid" ObjectType="DataGrid" PME="Bindings" Qty="1">DataGrid property grdDataGrid.Bindings was not upgraded.</Issue>
+    </Section>
+  </File>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101BatchProperties.frm" NewPath="frmImaging101BatchProperties.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\Imaging101ScanViewer.frm" NewPath="Imaging101ScanViewer.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmFileDialog.frm" NewPath="frmFileDialog.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDownloadTTC.frm" NewPath="frmDownloadTTC.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmAbout.frm" NewPath="frmAbout.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\mod_ShellExecute.bas" NewPath="mod_ShellExecute.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmUserInfo.frm" NewPath="frmUserInfo.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImportToBatch.frm" NewPath="frmImportToBatch.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmThumb.frm" NewPath="frmThumb.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDBRebuild.frm" NewPath="frmDBRebuild.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\APICreateDirectory.bas" NewPath="APICreateDirectory.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101ClientWinsockTest\frmImaging101Winsock.frm" NewPath="lientWinsockTest\frmImaging101Winsock.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101ClientWinsockTest\FunctionsForNetAPI.bas" NewPath="lientWinsockTest\FunctionsForNetAPI.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Windows\System32\frmBarcodeHandler.Frm" NewPath="C$\Windows\System32\frmBarcodeHandler.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Windows\System32\frmImaging101SearchTemplate.frm" NewPath="C$\Windows\System32\frmImaging101SearchTemplate.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Windows\System32\FunctionsForGroupSecurity.bas" NewPath="C$\Windows\System32\FunctionsForGroupSecurity.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixDeclare.bas" NewPath="Multi-stream Scan\PixDeclare.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixGeneralDeclare.bas" NewPath="Multi-stream Scan\PixGeneralDeclare.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixIniFileDeclare.bas" NewPath="Multi-stream Scan\PixIniFileDeclare.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixModMain.bas" NewPath="Multi-stream Scan\PixModMain.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixMultiFileName.bas" NewPath="Multi-stream Scan\PixMultiFileName.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixSettings.bas" NewPath="Multi-stream Scan\PixSettings.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixVbMultiScan.bas" NewPath="Multi-stream Scan\PixVbMultiScan.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\frmPixMultiStreamMain.frm" NewPath="Multi-stream Scan\frmPixMultiStreamMain.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\frmPixMultiStreamOutput.frm" NewPath="Multi-stream Scan\frmPixMultiStreamOutput.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\frmPixPageView.frm" NewPath="Multi-stream Scan\frmPixPageView.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\frmPixSplash.frm" NewPath="Multi-stream Scan\frmPixSplash.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 Multi-stream Scan\PixDataInitialization.bas" NewPath="Multi-stream Scan\PixDataInitialization.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101ClientNotification\frmPopUpNotifyForm.frm" NewPath="lientNotification\frmPopUpNotifyForm.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 CRC Generator\cBinaryFileStream.cls" NewPath="CRC Generator\cBinaryFileStream.cs" FileType="Class Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101 CRC Generator\cCRC32.cls" NewPath="CRC Generator\cCRC32.cs" FileType="Class Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101Status.frm" NewPath="frmImaging101Status.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101BatchRouteSelected.frm" NewPath="frmImaging101BatchRouteSelected.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ValidateWindowsCredentials.bas" NewPath="ValidateWindowsCredentials.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDropDownList.frm" NewPath="frmDropDownList.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmLoadingImages.frm" NewPath="frmLoadingImages.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmMessageForm.frm" NewPath="frmMessageForm.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\FunctionsForImaging101Only.bas" NewPath="FunctionsForImaging101Only.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101Modify.frm" NewPath="frmImaging101Modify.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmYesNo.frm" NewPath="frmYesNo.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDOCTYPES2.frm" NewPath="frmDOCTYPES2.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDBLookupList.frm" NewPath="frmDBLookupList.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101BatchNotes.frm" NewPath="frmImaging101BatchNotes.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\Imaging101ScanMainPix.frm" NewPath="Imaging101ScanMainPix.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\LOCALIZE.BAS" NewPath="LOCALIZE.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\SCANDOC.FRM" NewPath="SCANDOC.cs" FileType="Form" Upgraded="True">
+    <Section Name="(Parsing)">
+      <Issue Type="ToDo" Number="1035" Qty="1">#If #EndIf block was not upgraded because the expression Win16 did not evaluate to True or was not evaluated.</Issue>
+      <Issue Type="ToDo" Number="1035" Qty="1">#If #EndIf block was not upgraded because the expression 0 did not evaluate to True or was not evaluated.</Issue>
+    </Section>
+  </File>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\SCANSET.FRM" NewPath="SCANSET.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\BTCHCNCL.FRM" NewPath="BTCHCNCL.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\SCANAREA.FRM" NewPath="SCANAREA.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\SCANCONT.FRM" NewPath="SCANCONT.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101Package.frm" NewPath="frmImaging101Package.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\SysTrayDeclarations.bas" NewPath="SysTrayDeclarations.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\modDebugImaging101.bas" NewPath="modDebugImaging101.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101Retrieve.frm" NewPath="frmImaging101Retrieve.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101ExportOptions.frm" NewPath="frmImaging101ExportOptions.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\cSimpleCDBurner.cls" NewPath="cSimpleCDBurner.cs" FileType="Class Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\modMachineID.bas" NewPath="modMachineID.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\PixFunctions.bas" NewPath="PixFunctions.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmSplash.frm" NewPath="frmSplash.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmSMTPeMailForm.frm" NewPath="frmSMTPeMailForm.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\I101SecurityDashBoard.frm" NewPath="I101SecurityDashBoard.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\SCANCONTSIMPLE.FRM" NewPath="SCANCONTSIMPLE.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmLoginTTC.frm" NewPath="frmLoginTTC.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101QueueManagement.frm" NewPath="frmImaging101QueueManagement.cs" FileType="Form" Upgraded="True">
+    <Section Name="(Layout)">
+      <Issue Type="Design" Number="2064" ObjectName="DataList1" ObjectType="DataList" PME="Bindings" Qty="1">DataList property DataList1.Bindings was not upgraded.</Issue>
+    </Section>
+  </File>
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101ExportSimple.frm" NewPath="frmImaging101ExportSimple.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmImaging101MoveDocumentsBetweenApplications.frm" NewPath="frmImaging101MoveDocumentsBetweenApplications.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\FunctionsDirectoryTreeFileList.bas" NewPath="FunctionsDirectoryTreeFileList.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmDirTreeList.frm" NewPath="frmDirTreeList.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\ftp.bas" NewPath="ftp.cs" FileType="Module" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmSpicerControlForm.frm" NewPath="frmSpicerControlForm.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmSearch.frm" NewPath="frmSearch.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmConfig.frm" NewPath="frmConfig.cs" FileType="Form" Upgraded="True" />
+  <File OldPath="C:\Workarea\Jacob\PROGRAM\Imaging101\frmChildForm1.frm" NewPath="frmChildForm1.cs" FileType="Form" Upgraded="True" />
+</UpgradeLog>
+

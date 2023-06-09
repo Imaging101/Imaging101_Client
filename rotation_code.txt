@@ -1,0 +1,43 @@
+    'The Edit Control must be bound
+    '  to a Document Control containing a raster image to use this method.)
+    'The raster image in the View Control to which the Edit Control is bound is rotated.
+    'To check the status of this method, use the DataRotateAvailability property.
+    
+    'The new, rotated raster image must be placed in a Document Control, or replaces the old image.
+    'To rotate all layers on the page, use the RasterOperations property and
+    'set the IN_RASTERIZE_RASTER enum value = TRUE. (Configuration Control)
+    
+    'If the file currently has a header rotation, the rotation value selected in these methods is added to that rotation (with the exception of the landscape and portrait rotation options). To find the header rotation, use the HeaderRotation property.
+    
+    
+    Dim RasterBatch As IRasterBatch
+    ''Dim docContents As IDocContents
+    Dim lLayerID As Long
+    Dim iXResolution As Integer
+    Dim iYResolution As Integer
+    Dim Rotation As ROTATION_ANGLE
+    Dim bMirror As Boolean
+    Dim bNegative As Boolean
+    
+    ' Set the object variable for the IRasterBatch interface to the Edit Control object
+    Set RasterBatch = frmViewForm.SpicerEdit1.object
+    
+    ' Set the object variable for the IDocContents interface to the Document Control object
+    ''Set docContents = frmViewForm.SpicerDoc1.object
+    
+    ' BIND
+    RasterBatch.BindToDocumentControl docContents
+    
+    ' Flag image to be overwritten
+    subConfigRasterOperationsOverwrite
+    
+    ' Define the variables of the method
+    lLayerID = docContents.LayerID(0, 1) ' First layer on the single-page document
+    iXResolution = 200 ' Horizontal resolution in dpi
+    iYResolution = 200 ' Vertical resolution in dpi
+    Rotation = IN_ROTATION_270
+    bMirror = False
+    bNegative = False
+    
+    ' Edit the raster image - ROTATE
+    RasterBatch.ChangeRaster lLayerID, iXResolution, iYResolution, Rotation, bMirror, bNegative

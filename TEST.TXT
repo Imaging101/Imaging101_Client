@@ -1,0 +1,11 @@
+C:\SampleImages\Spicer\Nozzle.dwg|PC Tel|Purchase Orders|1999-01-01|1998-09-01|Nozzle|AutoCAD Drawing|Aircraft nozzle drawing left side view|1||||||||||||||||
+C:\SampleImages\Spicer\PROCESS.TIF|PC Networks|Invoices|1999-01-02|1998-08-02|Schematics|Multi-Page TIFF|no clue|1||||||||||||||||
+C:\SampleImages\Spicer\Adv40.doc|PC Networks|Correspondence|1999-01-02|1997-02-05|Word Document|version 40||1||||||||||||||||
+C:\SampleImages\Spicer\fish.tif|PC Networks|Purchase Orders|1999-01-02|1999-01-01|Fish picture Tif|||1||||||||||||||||
+C:\SampleImages\Spicer\00010001.tif|PCN Technologies|WASD|1999-02-01|1998-06-23|PAR Sheet|593-20-8684|RODRIGUEZ, ARMANDO|1||||||||||||||||
+C:\SampleImages\Spicer\00020001.tif|PCN Technologies|WASD|1999-02-02|1997-08-14|PAR Sheet|593-14-3621|REY-HOOKER, BARBARA|1||||||||||||||||
+C:\SampleImages\AmeriJet\SCN0001.TIF|AmeriJet|Freight|1998-02-10|1998-02-10|Air Waybills|810-31174861||1||||||||||||||||
+C:\SampleImages\AmeriJet\SCN0002.TIF|AmeriJet|Freight|1998-02-10|1998-02-10|Air Waybills|810-31174643||1||||||||||||||||
+C:\SampleImages\AmeriJet\SCN0003.TIF|AmeriJet|Freight|1998-02-10|1998-02-10|Air Waybills|810-31174676||1||||||||||||||||
+C:\SampleImages\AmeriJet\SCN0004.TIF|AmeriJet|Freight|1998-02-10|1998-02-10|Air Waybills|810-31172680||1||||||||||||||||
+C:\SampleImages\AmeriJet\SCN0005.TIF|AmeriJet|Freight|1998-02-10|1998-02-10|Air Waybills|810-31172805||1||||||||||||||||

@@ -1,0 +1,545 @@
+Private Sub cmdScannerAdvancedCapabilitiesSave_Click()
+
+    Dim INPUTLINE As String
+    Dim OUTPUTLINE As String
+    
+    Dim HexStr As String
+    Dim HexVal As Long
+    
+    Dim TWCONSTANT() As String
+    Dim TWSupportedCaps() As Long
+    Dim TWCapValue As String
+    Dim TWCapType As Integer
+    Dim i As Integer
+    
+    '********************************************************************
+    '*** Create Output File for Settings
+    '***
+   
+    lblStatus = "Saving Scanner Advanced Capabilites for [" & cmbBatchScanSettingsName & "]"
+    
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set fsoScannerSettings = fso.CreateTextFile(App.Path & "\ScanSet_" & cmbBatchScanSettingsName & ".cap", True)
+    
+    ' A demo of how to save all of the capabilities for
+    ' a SPECIFIC scanner
+    
+    ' The order of saving and restoring is CRITICAL
+    ' This order was created from http://twain.org/docs/CapOrderForWeb.PDF
+    
+    'Individual capabilities should be explored at http://twain.org/docs/Spec1_9_197.pdf
+    
+    'It is STRONGLY suggested only to save / restore only the capabilties you need.
+    
+    ' Independent of Read/Write Order
+      
+      ' This set can ONLY be read NOT restored
+      'Save_A_Twain_Cap (CAP_ENABLEDSUIONLY)
+      'Save_A_Twain_Cap (CAP_CUSTOMDSDATA)
+      'Save_A_Twain_Cap (CAP_UICONTROLLABLE)
+      'Save_A_Twain_Cap (CAP_SERIALNUMBER)
+      'Save_A_Twain_Cap (CAP_BATTERYMINUTES)
+      'Save_A_Twain_Cap (CAP_BATTERYPERCENTAGE)
+      'Save_A_Twain_Cap (CAP_POWERSUPPLY)
+      'Save_A_Twain_Cap (CAP_CAMERAPREVIEWUI)
+      
+      Save_A_Twain_Cap (CAP_INDICATORS)
+      Save_A_Twain_Cap (ICAP_LAMPSTATE)
+      Save_A_Twain_Cap (ICAP_BITORDER)
+      Save_A_Twain_Cap (CAP_DEVICETIMEDATE)
+      Save_A_Twain_Cap (CAP_DEVICEEVENT)
+      
+    ' SEMI Independent of Read/Write Order
+      
+      Save_A_Twain_Cap (CAP_ALARMS)
+      Save_A_Twain_Cap (CAP_ALARMVOLUME)
+      
+      Save_A_Twain_Cap (CAP_AUTOMATICCAPTURE)
+      Save_A_Twain_Cap (CAP_TIMEBEFOREFIRSTCAPTURE)
+      Save_A_Twain_Cap (CAP_TIMEBETWEENCAPTURES)
+      
+      Save_A_Twain_Cap (ACAP_XFERMECH)
+      Save_A_Twain_Cap (ACAP_AUDIOFILEFORMAT)
+      
+      
+      'Order Dependent
+     
+      'Save_A_Twain_Cap (CAP_SUPPORTEDCAPS) 'Read only
+      Save_A_Twain_Cap (CAP_LANGUAGE)
+      'Save_A_Twain_Cap (CAP_DEVICEONLINE) 'Read only
+      
+      Save_A_Twain_Cap (ICAP_XFERMECH)
+      Save_A_Twain_Cap (ICAP_TILES)
+      'Save_A_Twain_Cap (ICAP_IMAGEFILEFORMAT) automatically handled
+      Save_A_Twain_Cap (ICAP_COMPRESSION)
+      
+      Save_A_Twain_Cap (CAP_FEEDERENABLED)
+      'Save_A_Twain_Cap (CAP_DUPLEX) Read Only
+      Save_A_Twain_Cap (CAP_DUPLEXENABLED)
+      Save_A_Twain_Cap (CAP_FEEDERORDER)
+      Save_A_Twain_Cap (CAP_FEEDERALIGNMENT)
+      Save_A_Twain_Cap (CAP_AUTOFEED)
+      Save_A_Twain_Cap (CAP_CLEARPAGE)
+      Save_A_Twain_Cap (CAP_FEEDPAGE)
+      Save_A_Twain_Cap (CAP_REWINDPAGE)
+      'Save_A_Twain_Cap (CAP_PAPERDETECTABLE) Read only
+      'Save_A_Twain_Cap (CAP_FEEDERLOADED ) Read only
+      
+      Save_A_Twain_Cap (CAP_PRINTER)
+      Save_A_Twain_Cap (CAP_PRINTERENABLED)
+      Save_A_Twain_Cap (CAP_PRINTERMODE)
+      Save_A_Twain_Cap (CAP_PRINTERSTRING)
+      Save_A_Twain_Cap (CAP_PRINTERINDEX)
+      Save_A_Twain_Cap (CAP_PRINTERSUFFIX)
+      
+      'Save_A_Twain_Cap (CAP_EXTENDEDCAPS) don't use, TwainPro handles
+      
+      Save_A_Twain_Cap (ICAP_UNITS)
+      
+      Save_A_Twain_Cap (ICAP_IMAGEDATASET)
+      
+      Save_A_Twain_Cap (ICAP_PIXELTYPE)
+      Save_A_Twain_Cap (ICAP_BITDEPTH)
+      Save_A_Twain_Cap (ICAP_XRESOLUTION)
+      Save_A_Twain_Cap (ICAP_YRESOLUTION)
+      Save_A_Twain_Cap (ICAP_PIXELFLAVOR)
+      Save_A_Twain_Cap (ICAP_PLANARCHUNKY)
+      Save_A_Twain_Cap (ICAP_BITDEPTHREDUCTION)
+      Save_A_Twain_Cap (ICAP_CUSTHALFTONE)
+      Save_A_Twain_Cap (ICAP_HALFTONES)
+      Save_A_Twain_Cap (ICAP_THRESHOLD)
+      Save_A_Twain_Cap (ICAP_COMPRESSION)
+      Save_A_Twain_Cap (ICAP_BITORDERCODES)
+      Save_A_Twain_Cap (ICAP_CCITTKFACTOR)
+      Save_A_Twain_Cap (ICAP_PIXELFLAVOR)
+      Save_A_Twain_Cap (ICAP_TIMEFILL)
+      Save_A_Twain_Cap (ICAP_JPEGPIXELTYPE)
+      
+      Save_A_Twain_Cap (ICAP_XSCALING)
+      Save_A_Twain_Cap (ICAP_YSCALING)
+      Save_A_Twain_Cap (ICAP_ZOOMFACTOR)
+      
+      Save_A_Twain_Cap (ICAP_AUTOBRIGHT)
+      Save_A_Twain_Cap (ICAP_BRIGHTNESS)
+      
+      Save_A_Twain_Cap (ICAP_CONTRAST)
+      Save_A_Twain_Cap (ICAP_GAMMA)
+      Save_A_Twain_Cap (ICAP_HIGHLIGHT)
+      Save_A_Twain_Cap (ICAP_SHADOW)
+      Save_A_Twain_Cap (ICAP_EXPOSURETIME)
+      Save_A_Twain_Cap (ICAP_FILTER)
+      Save_A_Twain_Cap (ICAP_IMAGEFILTER)
+      Save_A_Twain_Cap (ICAP_NOISEFILTER)
+      
+      Save_A_Twain_Cap (ICAP_UNDEFINEDIMAGESIZE)
+      Save_A_Twain_Cap (ICAP_AUTOMATICBORDERDETECTION)
+      Save_A_Twain_Cap (ICAP_AUTOMATICDESKEW)
+      Save_A_Twain_Cap (ICAP_AUTOMATICROTATE)
+      Save_A_Twain_Cap (ICAP_OVERSCAN)
+      
+      Save_A_Twain_Cap (ICAP_SUPPORTEDSIZES)
+      
+      Save_A_Twain_Cap (ICAP_MAXFRAMES)
+      Save_A_Twain_Cap (ICAP_FRAMES)
+      
+      Save_A_Twain_Cap (ICAP_ORIENTATION)
+      Save_A_Twain_Cap (ICAP_FLIPROTATION)
+      Save_A_Twain_Cap (ICAP_ROTATION)
+      
+      Save_A_Twain_Cap (CAP_AUTHOR)
+      Save_A_Twain_Cap (CAP_CAPTION)
+      Save_A_Twain_Cap (ICAP_LIGHTSOURCE)
+      Save_A_Twain_Cap (ICAP_LIGHTPATH)
+      Save_A_Twain_Cap (ICAP_FLASHUSED2)
+      
+      Save_A_Twain_Cap (CAP_XFERCOUNT)
+      Save_A_Twain_Cap (CAP_AUTOSCAN)
+      Save_A_Twain_Cap (CAP_MAXBATCHBUFFERS)
+      Save_A_Twain_Cap (CAP_CLEARBUFFERS)
+      
+      Save_A_Twain_Cap (ICAP_EXTIMAGEINFO)
+      Save_A_Twain_Cap (ICAP_PATCHCODEDETECTIONENABLED)
+      Save_A_Twain_Cap (ICAP_PATCHCODESEARCHMODE)
+      Save_A_Twain_Cap (ICAP_PATCHCODEMAXRETRIES)
+      Save_A_Twain_Cap (ICAP_PATCHCODETIMEOUT)
+      Save_A_Twain_Cap (ICAP_PATCHCODEMAXSEARCHPRIORITIES)
+      Save_A_Twain_Cap (ICAP_PATCHCODESEARCHPRIORITIES)
+      Save_A_Twain_Cap (ICAP_BARCODEDETECTIONENABLED)
+      Save_A_Twain_Cap (ICAP_BARCODESEARCHMODE)
+      Save_A_Twain_Cap (ICAP_BARCODEMAXRETRIES)
+      Save_A_Twain_Cap (ICAP_BARCODETIMEOUT)
+      Save_A_Twain_Cap (ICAP_BARCODEMAXSEARCHPRIORITIES)
+      Save_A_Twain_Cap (ICAP_BARCODESEARCHPRIORITIES)
+      
+      Save_A_Twain_Cap (CAP_ENDORSER)
+      Save_A_Twain_Cap (CAP_JOBCONTROL)
+      
+    fsoScannerSettings.Close
+    
+    TwainPRO.CloseSession
+    cmdScanBegin.Visible = True
+    
+    lblStatus = "Scanner Advanced Capabilites Save Complete for [" & cmbBatchScanSettingsName & "]"
+    
+End Sub
+
+
+Private Sub cmdScannerAdvancedCapabilitiesLoad_Click()
+
+    cmdScanBegin.Visible = False
+    lblStatus = "Loading Scanner Advanced Capabilites for [" & cmbBatchScanSettingsName & "]"
+    
+    TwainPRO.CloseSession
+    TwainPRO.OpenSession
+    
+    Dim newcapnum
+    Dim newval
+    Dim newtype
+    Dim i
+    Dim arraycount
+
+    On Error GoTo UpdateError
+        ' We assume we are loading the SAME SCANNER!
+      Set fso = CreateObject("Scripting.FileSystemObject")
+      
+      strScannerSettingsFileName = App.Path & "\ScanSet_" & cmbBatchScanSettingsName & ".cap"
+      
+      If fso.FileExists(strScannerSettingsFileName) Then
+      
+         'MsgBox "This demo is designed for 'Load Settings' from the same scanner that 'Save Settings' was issued from", vbInformation
+         Set fsoScannerSettings = fso.OpenTextFile(strScannerSettingsFileName, 1, 0)
+         
+         
+         Do While fsoScannerSettings.AtEndOfStream <> True
+           newcapnum = fsoScannerSettings.ReadLine
+           newval = fsoScannerSettings.ReadLine
+           newtype = fsoScannerSettings.ReadLine
+           
+           TwainPRO.Capability = TWCAP_USECAPADVANCED
+           TwainPRO.CapAdvanced = newcapnum
+           
+           
+           If (TwainPRO.CapSupported) And (newtype <> "NotSupported") And (newval <> "NotSupported") Then
+             TwainPRO.CapTypeOut = newtype
+             
+             If (newtype = 2) Or (newtype = 1) Or (newtype = 0) Then
+               TwainPRO.CapTypeOut = 0
+               TwainPRO.CapValueOut = newval
+               TwainPRO.SetCapOut
+             End If
+             
+             If newtype = 3 Then 'ARRAY
+               arraycount = fsoScannerSettings.ReadLine
+               For i = 1 To arraycount
+                 TwainPRO.CapItemOut(i - 1) = fsoScannerSettings.ReadLine
+               Next i
+                 TwainPRO.SetCapOut
+             End If
+           End If
+         Loop
+         fsoScannerSettings.Close
+        
+        Else
+          MsgBox "This scanner has not been configured yet..." & _
+                    vbCrLf & "Please click the [Scanner Settings] button to configure!", vbInformation
+          
+        End If ' file does not exist
+    
+    
+'        cmdScanBegin.Visible = True
+        lblStatus = "Scanner Advanced Capabilites Load Complete for [" & cmbBatchScanSettingsName & "]"
+
+Exit Sub
+
+UpdateError:
+    On Error Resume Next
+    lblStatus = (ConvertTwainNumtoName(newcapnum) + "(" + Hex(newcapnum) + ") " + ConvertTwainTypetoName(CInt(newtype)) + " " + newval)
+    ' GetError ' we can skip for now
+    Resume Next
+
+    
+End Sub
+
+
+Function ConvertTwainTypetoName(innum As Integer) As String
+  Select Case innum
+  Case 0
+    ConvertTwainTypetoName = "ONEVALUE "
+  Case 1
+    ConvertTwainTypetoName = "ENUM "
+  Case 2
+    ConvertTwainTypetoName = "RANGE "
+  Case 3
+    ConvertTwainTypetoName = "ARRAY "
+  Case Else
+    ConvertTwainTypetoName = "UNKNOWN "
+  End Select
+End Function
+
+
+Private Sub Save_A_Twain_Cap(CapNum As Integer)
+    Dim tempval
+    Dim temptype
+    Dim i
+    Dim arraycount
+  
+    TwainPRO.Capability = TWCAP_USECAPADVANCED
+    TwainPRO.CapAdvanced = CapNum
+    If (TwainPRO.CapSupported) Then
+      tempval = TwainPRO.CapValue
+      temptype = TwainPRO.CapType
+    Else
+      tempval = "NotSupported"
+      temptype = "NotSupported"
+    End If
+    
+      
+    If (temptype = 3) Then 'ARRAY
+      fsoScannerSettings.WriteLine CapNum
+      fsoScannerSettings.WriteLine "ARRAY"
+      fsoScannerSettings.WriteLine temptype
+      arraycount = TwainPRO.CapNumItems
+      fsoScannerSettings.WriteLine arraycount
+      For i = 1 To arraycount
+        fsoScannerSettings.WriteLine TwainPRO.CapItem(i - 1)
+      Next i
+        
+    Else 'NOT ARRAY
+      fsoScannerSettings.WriteLine CapNum
+      fsoScannerSettings.WriteLine tempval
+      fsoScannerSettings.WriteLine temptype
+    End If 'ARRAY
+
+End Sub
+
+
+Function ConvertTwainNumtoName(innum) As String
+    ' This is handy for displaying errors
+  Select Case innum
+  Case &H1
+    ConvertTwainNumtoName = "CAP_XFERCOUNT "
+  Case &H100
+    ConvertTwainNumtoName = "ICAP_COMPRESSION "
+  Case &H101
+    ConvertTwainNumtoName = "ICAP_UNITS "
+  Case &H103
+    ConvertTwainNumtoName = "ICAP_XFERMECH "
+  Case &H1000
+    ConvertTwainNumtoName = "CAP_AUTHOR "
+  Case &H1001
+    ConvertTwainNumtoName = "CAP_CAPTION "
+  Case &H1002
+    ConvertTwainNumtoName = "CAP_FEEDERENABLED "
+  Case &H1003
+    ConvertTwainNumtoName = "CAP_FEEDERLOADED "
+  Case &H1004
+    ConvertTwainNumtoName = "CAP_TIMEDATE "
+  Case &H1005
+    ConvertTwainNumtoName = "CAP_SUPPORTEDCAPS "
+  Case &H1006
+    ConvertTwainNumtoName = "CAP_EXTENDEDCAPS "
+  Case &H1007
+    ConvertTwainNumtoName = "CAP_AUTOFEED "
+  Case &H1008
+    ConvertTwainNumtoName = "CAP_CLEARPAGE "
+  Case &H1009
+    ConvertTwainNumtoName = "CAP_FEEDPAGE "
+  Case &H100A
+    ConvertTwainNumtoName = "CAP_REWINDPAGE "
+  Case &H100B
+    ConvertTwainNumtoName = "CAP_INDICATORS "
+  Case &H100C
+    ConvertTwainNumtoName = "CAP_SUPPORTEDCAPSEXT "
+  Case &H100D
+    ConvertTwainNumtoName = "CAP_PAPERDETECTABLE "
+  Case &H100E
+    ConvertTwainNumtoName = "CAP_UICONTROLLABLE "
+  Case &H100F
+    ConvertTwainNumtoName = "CAP_DEVICEONLINE "
+  Case &H1010 ' 4112
+    ConvertTwainNumtoName = "CAP_AUTOSCAN "
+  Case &H1011
+    ConvertTwainNumtoName = "CAP_THUMBNAILSENABLED "
+  Case &H1012
+    ConvertTwainNumtoName = "CAP_DUPLEX "
+  Case &H1013
+    ConvertTwainNumtoName = "CAP_DUPLEXENABLED "
+  Case &H1014
+    ConvertTwainNumtoName = "CAP_ENABLEDSUIONLY "
+  Case &H1015
+    ConvertTwainNumtoName = "CAP_CUSTOMDSDATA "
+  Case &H1016
+    ConvertTwainNumtoName = "CAP_ENDORSER "
+  Case &H1017
+    ConvertTwainNumtoName = "CAP_JOBCONTROL "
+  Case &H1018
+    ConvertTwainNumtoName = "CAP_ALARMS "
+  Case &H1019
+    ConvertTwainNumtoName = "CAP_ALARMVOLUME "
+  Case &H101A
+    ConvertTwainNumtoName = "CAP_AUTOMATICCAPTURE "
+  Case &H101B
+    ConvertTwainNumtoName = "CAP_TIMEBEFOREFIRSTCAPTURE "
+  Case &H101C
+    ConvertTwainNumtoName = "CCAP_TIMEBETWEENCAPTURES "
+  Case &H101D
+    ConvertTwainNumtoName = "CAP_CLEARBUFFERS "
+  Case &H102F
+    ConvertTwainNumtoName = "CAP_PAPERBINDING "
+  Case &H1030
+    ConvertTwainNumtoName = "CAP_REACQUIREALLOWED "
+  Case &H1031
+    ConvertTwainNumtoName = "CAP_PASSTHRU "
+  Case &H1032
+    ConvertTwainNumtoName = "CAP_BATTERYMINUTES "
+  Case &H1033
+    ConvertTwainNumtoName = "CAP_BATTERYPERCENTAGE "
+  Case &H1034
+    ConvertTwainNumtoName = "CAP_POWERDOWNTIME "
+  Case &H1100
+    ConvertTwainNumtoName = "ICAP_AUTOBRIGHT "
+  Case &H1101
+    ConvertTwainNumtoName = "ICAP_BRIGHTNESS "
+  Case &H1103
+    ConvertTwainNumtoName = "ICAP_CONTRAST "
+  Case &H1104 '4356
+    ConvertTwainNumtoName = "ICAP_CUSTHALFTONE "
+  Case &H1105
+    ConvertTwainNumtoName = "ICAP_EXPOSURETIME "
+  Case &H1106
+    ConvertTwainNumtoName = "ICAP_FILTER "
+  Case &H1107
+    ConvertTwainNumtoName = "ICAP_FLASHUSED "
+  Case &H1108
+    ConvertTwainNumtoName = "ICAP_GAMMA "
+  Case &H1109 '4361
+    ConvertTwainNumtoName = "ICAP_HALFTONES "
+  Case &H110A
+    ConvertTwainNumtoName = "ICAP_HIGHLIGHT "
+  Case &H110C
+    ConvertTwainNumtoName = "ICAP_IMAGEFILEFORMAT "
+  Case &H110D
+    ConvertTwainNumtoName = "ICAP_LAMPSTATE "
+  Case &H110E
+    ConvertTwainNumtoName = "ICAP_LIGHTSOURCE "
+  Case &H1110
+    ConvertTwainNumtoName = "ICAP_ORIENTATION "
+  Case &H1111
+    ConvertTwainNumtoName = "ICAP_PHYSICALWIDTH "
+  Case &H1112
+    ConvertTwainNumtoName = "ICAP_PHYSICALHEIGHT "
+  Case &H1113
+    ConvertTwainNumtoName = "ICAP_SHADOW "
+  Case &H1114
+    ConvertTwainNumtoName = "ICAP_FRAMES "
+  Case &H1116
+    ConvertTwainNumtoName = "ICAP_XNATIVERESOLUTION "
+  Case &H1117
+    ConvertTwainNumtoName = "ICAP_YNATIVERESOLUTION "
+  Case &H1118
+    ConvertTwainNumtoName = "ICAP_XRESOLUTION "
+  Case &H1119
+    ConvertTwainNumtoName = "ICAP_YRESOLUTION "
+  Case &H111A
+    ConvertTwainNumtoName = "ICAP_MAXFRAMES "
+  Case &H111B
+    ConvertTwainNumtoName = "ICAP_TILES "
+  Case &H111C
+    ConvertTwainNumtoName = "ICAP_BITORDER "
+  Case &H111D
+    ConvertTwainNumtoName = "ICAP_CCITTKFACTOR "
+  Case &H111E
+    ConvertTwainNumtoName = "ICAP_LIGHTPATH "
+  Case &H111F
+    ConvertTwainNumtoName = "ICAP_PIXELFLAVOR "
+  Case &H1120
+    ConvertTwainNumtoName = "ICAP_PLANARCHUNKY "
+  Case &H1121
+    ConvertTwainNumtoName = "ICAP_ROTATION "
+  Case &H1122
+    ConvertTwainNumtoName = "ICAP_SUPPORTEDSIZES "
+  Case &H1123
+    ConvertTwainNumtoName = "ICAP_THRESHOLD "
+  Case &H1124
+    ConvertTwainNumtoName = "ICAP_XSCALING "
+  Case &H1125
+    ConvertTwainNumtoName = "ICAP_YSCALING "
+  Case &H1126
+    ConvertTwainNumtoName = "ICAP_BITORDERCODES "
+  Case &H1127
+    ConvertTwainNumtoName = "ICAP_PIXELFLAVORCODES "
+  Case &H1128
+    ConvertTwainNumtoName = "ICAP_JPEGPIXELTYPE "
+  Case &H112A
+    ConvertTwainNumtoName = "ICAP_TIMEFILL "
+  Case &H112B
+    ConvertTwainNumtoName = "ICAP_BITDEPTH "
+  Case &H112C
+    ConvertTwainNumtoName = "ICAP_BITDEPTHREDUCTION "
+  Case &H112D
+    ConvertTwainNumtoName = "ICAP_UNDEFINEDIMAGESIZE "
+  Case &H112E
+    ConvertTwainNumtoName = "ICAP_IMAGEDATASET "
+  Case &H112F
+    ConvertTwainNumtoName = "ICAP_EXTIMAGEINFO "
+  Case &H1130
+    ConvertTwainNumtoName = "ICAP_MINIMUMHEIGHT "
+  Case &H1131
+    ConvertTwainNumtoName = "ICAP_MINIMUMWIDTH "
+  Case &H1134
+    ConvertTwainNumtoName = "ICAP_AUTODISCARDBLANKPAGES "
+  Case &H1136
+    ConvertTwainNumtoName = "ICAP_FLIPROTATION "
+  Case &H1137
+    ConvertTwainNumtoName = "ICAP_BARCODEDETECTIONENABLED "
+  Case &H1138
+    ConvertTwainNumtoName = "ICAP_SUPPORTEDBARCODETYPES "
+  Case &H1139
+    ConvertTwainNumtoName = "ICAP_BARCODEMAXSEARCHPRIORITIES "
+  Case &H113A
+    ConvertTwainNumtoName = "ICAP_BARCODESEARCHPRIORITIES "
+  Case &H113B
+    ConvertTwainNumtoName = "ICAP_BARCODESEARCHMODE "
+  Case &H113C
+    ConvertTwainNumtoName = "ICAP_BARCODEMAXRETRIES "
+  Case &H113D
+    ConvertTwainNumtoName = "ICAP_BARCODETIMEOUT "
+  Case &H113E
+    ConvertTwainNumtoName = "ICAP_ZOOMFACTOR "
+  Case &H113F
+    ConvertTwainNumtoName = "ICAP_PATCHCODEDETECTIONENABLED "
+  Case &H1140
+    ConvertTwainNumtoName = "ICAP_SUPPORTEDPATCHCODETYPES "
+  Case &H1141
+    ConvertTwainNumtoName = "ICAP_PATCHCODEMAXSEARCHPRIORITIES "
+  Case &H1142
+    ConvertTwainNumtoName = "ICAP_PATCHCODESEARCHPRIORITIES "
+  Case &H1143
+    ConvertTwainNumtoName = "ICAP_PATCHCODESEARCHMODE "
+  Case &H1144
+    ConvertTwainNumtoName = "ICAP_PATCHCODEMAXRETRIES "
+  Case &H1145
+    ConvertTwainNumtoName = "ICAP_PATCHCODETIMEOUT "
+  Case &H1146
+    ConvertTwainNumtoName = "ICAP_FLASHUSED2 "
+  Case &H1147
+    ConvertTwainNumtoName = "ICAP_IMAGEFILTER "
+  Case &H1148
+    ConvertTwainNumtoName = "ICAP_NOISEFILTER "
+  Case &H1149
+    ConvertTwainNumtoName = "ICAP_OVERSCAN "
+  Case &H1150
+    ConvertTwainNumtoName = "ICAP_AUTOMATICBORDERDETECTION "
+  Case &H1151
+    ConvertTwainNumtoName = "ICAP_AUTOMATICDESKEW "
+  Case &H1152
+    ConvertTwainNumtoName = "ICAP_AUTOMATICROTATE "
+  Case &H1201
+    ConvertTwainNumtoName = "ACAP_AUDIOFILEFORMAT  "
+  Case &H1202
+    ConvertTwainNumtoName = "ACAP_XFERMECH "
+  Case Else
+    ConvertTwainNumtoName = "UNKNOWN "
+  End Select
+End Function
+
