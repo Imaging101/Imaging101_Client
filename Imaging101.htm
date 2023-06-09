@@ -1,0 +1,115 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>You can define input masks at both design time and run time</title>
+</head>
+
+<body>
+<P>You can define input masks at both design time and run time. However, the 
+following are examples of standard input masks that you may want to use at 
+design time. The control can distinguish between numeric and alphabetic 
+characters for validation, but cannot check for valid content, such as the 
+correct month or time of day.</P>
+<TABLE cols=2 cellPadding=5 rules=rows border=1 frame=below>
+<TBODY>
+<TR vAlign=top>
+<TD class=label width="29%"><B>Mask</B></TD>
+<TD class=label width="71%"><B>Description</B></TD></TR>
+<TR vAlign=top>
+<TD width="29%">Null String</TD>
+<TD width="71%">(Default) No mask. Acts like a standard text box.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">##-???-##</TD>
+<TD width="71%">Medium date (US). Example: 20-May-92</TD></TR>
+<TR vAlign=top>
+<TD width="29%">##-##-##</TD>
+<TD width="71%">Short date (US). Example: 05-20-92</TD></TR>
+<TR vAlign=top>
+<TD width="29%">##:## ??</TD>
+<TD width="71%">Medium time. Example: 05:36 AM</TD></TR>
+<TR vAlign=top>
+<TD width="29%">##:##</TD>
+<TD width="71%">Short time. Example: 17:23</TD></TR></TBODY></TABLE><BR>
+<P>The input mask can consist of the following characters.</P>
+<TABLE cols=2 cellPadding=5 rules=rows border=1 frame=below>
+<TBODY>
+<TR vAlign=top>
+<TD class=label width="29%"><B>Mask character</B></TD>
+<TD class=label width="71%"><B>Description</B></TD></TR>
+<TR vAlign=top>
+<TD width="29%">#</TD>
+<TD width="71%">Digit placeholder.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">.</TD>
+<TD width="71%">Decimal placeholder. The actual character used is the one 
+specified as the decimal placeholder in your international settings. This 
+character is treated as a literal for masking purposes.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">,</TD>
+<TD width="71%">Thousands separator. The actual character used is the one 
+specified as the thousands separator in your international settings. This 
+character is treated as a literal for masking purposes.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">:</TD>
+<TD width="71%">Time separator. The actual character used is the one specified 
+as the time separator in your international settings. This character is treated 
+as a literal for masking purposes.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">/</TD>
+<TD width="71%">Date separator. The actual character used is the one specified 
+as the date separator in your international settings. This character is treated 
+as a literal for masking purposes.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">\</TD>
+<TD width="71%">Treat the next character in the mask string as a literal. This 
+allows you to include the '#', '&amp;', 'A', and '?' characters in the mask. 
+This character is treated as a literal for masking purposes.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">&amp;</TD>
+<TD width="71%">Character placeholder. Valid values for this placeholder are 
+ANSI characters in the following ranges: 32-126 and 128-255.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">&gt;</TD>
+<TD width="71%">Convert all the characters that follow to uppercase.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">&lt;</TD>
+<TD width="71%">Convert all the characters that follow to lowercase.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">A</TD>
+<TD width="71%">Alphanumeric character placeholder (entry required). For 
+example: a – z, A – Z, or 0 – 9.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">a</TD>
+<TD width="71%">Alphanumeric character placeholder (entry optional).</TD></TR>
+<TR vAlign=top>
+<TD width="29%">9</TD>
+<TD width="71%">Digit placeholder (entry optional). For example: 0 – 
+9.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">C</TD>
+<TD width="71%">Character or space placeholder (entry optional). This operates 
+exactly like the &amp; placeholder, and ensures compatibility with Microsoft 
+Access.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">?</TD>
+<TD width="71%">Letter placeholder. For example: a – z or A – Z.</TD></TR>
+<TR vAlign=top>
+<TD width="29%">Literal</TD>
+<TD width="71%">All other symbols are displayed as literals; that is, as 
+themselves.</TD></TR></TBODY></TABLE><BR>
+<P>When the value of the <B>Mask</B> property is an empty string (""), the 
+control behaves like a standard text box control. When an input mask is defined, 
+underscores appear beneath every placeholder in the mask. You can only replace a 
+placeholder with a character that is of the same type as the one specified in 
+the input mask. If you enter an invalid character, the masked edit control 
+rejects the character and generates a ValidationError event.</P>
+<P class=indent><B><B>Note</B></B>   When you define an input mask for the 
+<B>Masked Edit</B> control and you tab to another control, the ValidationError 
+event is generated if there are any invalid characters in the <B>Masked Edit</B> 
+control.</P>
+</body>
+
+</html>

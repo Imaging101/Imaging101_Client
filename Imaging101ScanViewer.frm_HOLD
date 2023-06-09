@@ -1,0 +1,337 @@
+VERSION 5.00
+Object = "{71C182E1-878D-11D1-8108-020701190C00}#7.40#0"; "view.ocx"
+Object = "{22B7B2BB-4EFA-11D2-81FC-0000D1108734}#7.40#0"; "edit.ocx"
+Object = "{895CDC7A-8837-11D1-8109-020701190C00}#7.40#0"; "docctrl.ocx"
+Begin VB.Form Imaging101ScanViewer 
+   Caption         =   "Viewer"
+   ClientHeight    =   10950
+   ClientLeft      =   6540
+   ClientTop       =   315
+   ClientWidth     =   8340
+   Icon            =   "Imaging101ScanViewer.frx":0000
+   LinkTopic       =   "Form2"
+   ScaleHeight     =   10950
+   ScaleWidth      =   8340
+   Visible         =   0   'False
+   Begin SPICEREDITLib.SpicerEdit SpicerEdit1 
+      Left            =   3720
+      Top             =   1080
+      _Version        =   458792
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _StockProps     =   0
+   End
+   Begin VB.CommandButton cmdZoomFit 
+      Appearance      =   0  'Flat
+      Caption         =   "Fit to Window"
+      Height          =   250
+      Left            =   855
+      Style           =   1  'Graphical
+      TabIndex        =   9
+      Top             =   360
+      Width           =   1215
+   End
+   Begin VB.CommandButton cmdZoomOut 
+      Appearance      =   0  'Flat
+      Caption         =   "Zoom Out"
+      Height          =   250
+      Left            =   2070
+      Style           =   1  'Graphical
+      TabIndex        =   8
+      Top             =   360
+      Width           =   855
+   End
+   Begin VB.CommandButton cmdZoomIn 
+      Appearance      =   0  'Flat
+      Caption         =   "Zoom In"
+      Height          =   250
+      Left            =   0
+      Style           =   1  'Graphical
+      TabIndex        =   7
+      Top             =   360
+      Width           =   855
+   End
+   Begin SPICERDOCUMENTLib.SpicerDoc SpicerDoc1 
+      Left            =   2880
+      Top             =   1080
+      _Version        =   458792
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _StockProps     =   0
+   End
+   Begin SPICERVIEWLib.SpicerView SpicerView1 
+      Height          =   2775
+      Left            =   0
+      TabIndex        =   6
+      Top             =   600
+      Width           =   2055
+      _Version        =   458792
+      _ExtentX        =   3625
+      _ExtentY        =   4895
+      _StockProps     =   0
+   End
+   Begin VB.TextBox txtFileName 
+      Height          =   285
+      Left            =   3000
+      TabIndex        =   5
+      Text            =   "Text1"
+      Top             =   0
+      Visible         =   0   'False
+      Width           =   3855
+   End
+   Begin VB.TextBox EdtTotal 
+      Height          =   285
+      Left            =   1920
+      Locked          =   -1  'True
+      TabIndex        =   3
+      Text            =   "0"
+      Top             =   0
+      Width           =   615
+   End
+   Begin VB.CommandButton CmdNext 
+      Caption         =   "-->"
+      Enabled         =   0   'False
+      Height          =   315
+      Left            =   780
+      TabIndex        =   2
+      Top             =   0
+      Width           =   375
+   End
+   Begin VB.TextBox EdtImag 
+      Height          =   285
+      Left            =   360
+      Locked          =   -1  'True
+      TabIndex        =   1
+      Top             =   0
+      Width           =   435
+   End
+   Begin VB.CommandButton CmdPrev 
+      Caption         =   "<--"
+      Enabled         =   0   'False
+      Height          =   315
+      Left            =   0
+      TabIndex        =   0
+      Top             =   0
+      Width           =   375
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Total:"
+      Height          =   195
+      Left            =   1440
+      TabIndex        =   4
+      Top             =   60
+      Width           =   435
+   End
+End
+Attribute VB_Name = "Imaging101ScanViewer"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+' Poor man's viewer :)
+'
+' This form just uses an array of Picture controls to store
+' all the images returned by TwainPRO
+Option Explicit
+
+Public Sub AddImage(fn As String)
+    Dim Index As Long
+    
+    ' If Preview Only is checked ON keep only ONE image at a time
+'    If Imaging101ScanMain.chkScanPreviewOnly = vbChecked Then
+'        Index = CDbl(EdtTotal.Text) + 1
+'        EdtTotal.Text = Index
+'    Else
+        Index = 1
+        EdtTotal.Text = Index
+'    End If
+    
+    ' Using simple VB Image Control
+'    On Error Resume Next
+'    If Image1.Count > 1 Then
+'        Unload Image1(Index)
+'    End If
+'    On Error GoTo 0
+    
+    'Resize
+    If Me.Visible = False Then
+       Me.Show
+    End If
+    
+'    Load Image1(Index)
+'    Image1(Index).Picture = Imaging101ScanMain.TwainPRO.Picture
+'    Image1(Index).Visible = True
+'    Image1(Index).ZOrder
+
+    '*** Using Spicer Image aX
+    SpicerDoc1.CloseDocument False
+    SpicerDoc1.OpenFile (fn)
+    SpicerView1.BindToDocumentControl SpicerDoc1.object
+    SpicerEdit1.BindToViewControl SpicerView1.object
+'''    SpicerEdit1.ReplaceCurrentDocWhenRasterizing = 1
+    mnuCropAuto_Click
+'    SpicerEdit1.Save Me.SpicerEdit1.object, False, 0, fn, ""
+    
+    '*** Using Pegasus ImageXpress
+'    ImagXpress1.hDib = Imaging101ScanMain.TwainPRO.hDib
+'    ImagXpress1.ZoomToFit ZOOMFIT_BEST
+
+''    Load Pic(Index)
+''    Pic(Index).Picture = Stage.TwainPRO.Picture
+''    Pic(Index).Visible = True
+''    Pic(Index).ZOrder
+    
+    DoEvents
+    
+    If Index > 1 Then
+       CmdPrev.Enabled = True
+    End If
+    
+    CmdNext.Enabled = False
+    EdtImag.Text = Index
+    
+End Sub
+
+Private Sub CmdNext_Click()
+'    Dim Index As Long
+'
+'    Index = CDbl(EdtImag.Text) + 1
+'    EdtImag.Text = Index
+'    Image1(Index).ZOrder
+'    'Pic(Index).ZOrder
+'    If Index >= CDbl(EdtTotal.Text) Then
+'       CmdNext.Enabled = False
+'    End If
+'    If CmdPrev.Enabled = False Then
+'       CmdPrev.Enabled = True
+'    End If
+'    Resize
+End Sub
+
+Private Sub CmdPrev_Click()
+'    Dim Index As Long
+'
+'    Index = CDbl(EdtImag.Text) - 1
+'    EdtImag.Text = Index
+'    Image1(Index).ZOrder
+'    'Pic(Index).ZOrder
+'    If Index <= 1 Then
+'       CmdPrev.Enabled = False
+'    End If
+'    If CmdNext.Enabled = False Then
+'       CmdNext.Enabled = True
+'    End If
+'    Resize
+End Sub
+
+Private Sub Resize()
+
+End Sub
+
+
+
+
+Private Sub Form_Load()
+    ' Get saved settings from the registry
+    On Error Resume Next
+    Imaging101ScanViewer.Top = VBGetPrivateProfileString(RegAppname, "Imaging101ScanViewer.Top", RegFileName)
+    Imaging101ScanViewer.Left = VBGetPrivateProfileString(RegAppname, "Imaging101ScanViewer.Left", RegFileName)
+    Imaging101ScanViewer.Width = VBGetPrivateProfileString(RegAppname, "Imaging101ScanViewer.Width", RegFileName)
+    Imaging101ScanViewer.Height = VBGetPrivateProfileString(RegAppname, "Imaging101ScanViewer.Height", RegFileName)
+    On Error GoTo 0
+
+End Sub
+
+Private Sub Form_Resize()
+    
+    On Error Resume Next
+    SpicerView1.Height = Me.ScaleHeight - SpicerView1.Top
+    SpicerView1.Width = Me.ScaleWidth
+    
+'    ImagXpress1.Height = Me.ScaleHeight - SpicerView1.Top
+'    ImagXpress1.Width = Me.ScaleWidth
+    
+    
+'      If frmAnnotate.Visible = True Then frmAnnotate.Unload
+
+    'Save Form settings to the registry
+    If Me.Top > 0 And Me.Left > 0 Then
+        result = WritePrivateProfileString(RegAppname, "Imaging101ScanViewer.Top", Imaging101ScanViewer.Top, RegFileName)
+        result = WritePrivateProfileString(RegAppname, "Imaging101ScanViewer.Left", Imaging101ScanViewer.Left, RegFileName)
+        result = WritePrivateProfileString(RegAppname, "Imaging101ScanViewer.Width", Imaging101ScanViewer.Width, RegFileName)
+        result = WritePrivateProfileString(RegAppname, "Imaging101ScanViewer.Height", Imaging101ScanViewer.Height, RegFileName)
+    End If
+
+    On Error GoTo 0
+
+End Sub
+
+
+Private Sub SpicerView1_DblClick()
+
+    cmdZoomFit_Click
+    
+End Sub
+
+
+
+
+Private Sub SpicerView1_UserScroll()
+''    MsgBox "userscroll"
+    
+End Sub
+
+Private Sub SpicerView1_VectorObjectPlaced(ByVal LayerID As Long, ByVal vectObjectID As Long)
+    
+    Me.SetFocus
+    
+End Sub
+
+Private Sub cmdZoomFit_Click()
+
+    SpicerView1.ZoomLevel(0) = IN_ZOOM_SCALETOFIT
+
+End Sub
+
+Private Sub cmdZoomIn_Click()
+   Dim ScaleScrollRotation As IScaleScrollRotation
+   ' Set the object variable for the IScaleScrollRotation interface to the View Control object
+   Set ScaleScrollRotation = Me.SpicerView1.object
+   ' Scale the current page to fit to the window
+   ScaleScrollRotation.ZoomStepSize(0) = 1.5
+   ScaleScrollRotation.ZoomLevel(0) = IN_ZOOM_IN
+   ' De-initialize the IScaleScrollRotation object variable
+   Set ScaleScrollRotation = Nothing
+
+End Sub
+
+Private Sub cmdZoomOut_Click()
+
+   Dim ScaleScrollRotation As IScaleScrollRotation
+   ' Set the object variable for the IScaleScrollRotation interface to the View Control object
+   Set ScaleScrollRotation = Me.SpicerView1.object
+   ' Scale the current page to fit to the window
+   ScaleScrollRotation.ZoomStepSize(0) = 1.5
+   ScaleScrollRotation.ZoomLevel(0) = IN_ZOOM_OUT
+   ' De-initialize the IScaleScrollRotation object variable
+   Set ScaleScrollRotation = Nothing
+
+
+End Sub
+
+Private Sub mnuCropAuto_Click()
+   On Error GoTo ErrorOccurred
+   Dim RasterTools As IRasterTools
+   ' Set the object variable for the IRasterTools interface to the Edit Control object
+   Set RasterTools = Me.SpicerEdit1.object
+   ' Crop the active bilevel raster
+   RasterTools.CropToMinimalSize
+   ' De-initialize the object variable
+   Set RasterTools = Nothing
+   Exit Sub
+   ' Process any errors. For sample code, click ErrorHandler.
+
+ErrorOccurred:
+'   ErrorHandler
+   Exit Sub
+End Sub

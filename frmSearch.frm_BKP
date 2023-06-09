@@ -1,0 +1,1379 @@
+VERSION 5.00
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "msmask32.ocx"
+Begin VB.Form frmImaging101Search 
+   BackColor       =   &H00FEDCC7&
+   Caption         =   "Retrieval Search Form - Imaging101"
+   ClientHeight    =   4290
+   ClientLeft      =   1320
+   ClientTop       =   870
+   ClientWidth     =   6030
+   Icon            =   "frmSearch.frx":0000
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   4290
+   ScaleWidth      =   6030
+   Begin VB.CommandButton cmdSave 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "&Save"
+      Enabled         =   0   'False
+      Height          =   735
+      Left            =   3840
+      Picture         =   "frmSearch.frx":0442
+      Style           =   1  'Graphical
+      TabIndex        =   27
+      Top             =   2520
+      Visible         =   0   'False
+      Width           =   855
+   End
+   Begin VB.TextBox txtFieldSearchCondition 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00FFFFFF&
+      BorderStyle     =   0  'None
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Index           =   0
+      Left            =   1920
+      TabIndex        =   26
+      TabStop         =   0   'False
+      Top             =   1560
+      Width           =   855
+   End
+   Begin VB.TextBox txtMaxItemsToRetrieve 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000016&
+      BorderStyle     =   0  'None
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   4680
+      TabIndex        =   25
+      Top             =   840
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin VB.TextBox txtFilterStatement 
+      Height          =   285
+      Left            =   720
+      TabIndex        =   24
+      Text            =   "txtFilterStatement"
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   1815
+   End
+   Begin VB.CommandButton cmdFieldDropDown 
+      Appearance      =   0  'Flat
+      Caption         =   "v"
+      Height          =   255
+      Index           =   0
+      Left            =   5640
+      TabIndex        =   1
+      Top             =   1560
+      Visible         =   0   'False
+      Width           =   375
+   End
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00FFFFFF&
+      BorderStyle     =   0  'None
+      Caption         =   "Frame1"
+      Height          =   735
+      Left            =   0
+      TabIndex        =   16
+      Top             =   0
+      Width           =   5895
+      Begin VB.CommandButton cmdHelp 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "&Help"
+         Enabled         =   0   'False
+         Height          =   735
+         Left            =   2565
+         Picture         =   "frmSearch.frx":110C
+         Style           =   1  'Graphical
+         TabIndex        =   19
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   855
+      End
+      Begin VB.CommandButton cmdPackage 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "&Package"
+         Enabled         =   0   'False
+         Height          =   735
+         Left            =   1710
+         Picture         =   "frmSearch.frx":19D6
+         Style           =   1  'Graphical
+         TabIndex        =   23
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   855
+      End
+      Begin VB.CommandButton cmdClear 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "&Clear"
+         Enabled         =   0   'False
+         Height          =   735
+         Left            =   855
+         Picture         =   "frmSearch.frx":26A0
+         Style           =   1  'Graphical
+         TabIndex        =   18
+         Top             =   0
+         Width           =   855
+      End
+      Begin VB.PictureBox picImaging101Logo 
+         Appearance      =   0  'Flat
+         BackColor       =   &H80000005&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   495
+         Left            =   4200
+         Picture         =   "frmSearch.frx":2AE2
+         ScaleHeight     =   495
+         ScaleWidth      =   1695
+         TabIndex        =   21
+         Top             =   0
+         Width           =   1695
+      End
+      Begin VB.CommandButton cmdFind 
+         BackColor       =   &H00FFFFFF&
+         Caption         =   "&Find"
+         Default         =   -1  'True
+         Enabled         =   0   'False
+         Height          =   735
+         Left            =   0
+         Picture         =   "frmSearch.frx":3572
+         Style           =   1  'Graphical
+         TabIndex        =   17
+         Top             =   0
+         Width           =   855
+      End
+      Begin VB.Label lblVersion 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Version"
+         ForeColor       =   &H00008000&
+         Height          =   225
+         Left            =   4200
+         TabIndex        =   22
+         Top             =   480
+         Width           =   1605
+      End
+   End
+   Begin VB.TextBox txtApplicationName 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000016&
+      BorderStyle     =   0  'None
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   3240
+      TabIndex        =   15
+      Top             =   840
+      Visible         =   0   'False
+      Width           =   1215
+   End
+   Begin VB.Timer Timer1 
+      Left            =   120
+      Top             =   2400
+   End
+   Begin VB.TextBox txtApplicationRECID 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000016&
+      BorderStyle     =   0  'None
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   1920
+      TabIndex        =   14
+      Top             =   840
+      Visible         =   0   'False
+      Width           =   1215
+   End
+   Begin VB.TextBox txtFieldIsRequiredForCommit 
+      Height          =   285
+      Index           =   0
+      Left            =   1080
+      TabIndex        =   12
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldName 
+      Height          =   285
+      Index           =   0
+      Left            =   4320
+      TabIndex        =   11
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldSize 
+      Height          =   285
+      Index           =   0
+      Left            =   3960
+      TabIndex        =   10
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldType 
+      Height          =   285
+      Index           =   0
+      Left            =   3600
+      TabIndex        =   9
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtBatchFieldsRECID 
+      Height          =   285
+      Index           =   0
+      Left            =   1440
+      TabIndex        =   8
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldsRECID 
+      Height          =   285
+      Index           =   0
+      Left            =   1800
+      TabIndex        =   7
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldDefaultValue 
+      Height          =   285
+      Index           =   0
+      Left            =   2160
+      TabIndex        =   6
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldHighValue 
+      Height          =   285
+      Index           =   0
+      Left            =   2880
+      TabIndex        =   5
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldLowValue 
+      Height          =   285
+      Index           =   0
+      Left            =   2520
+      TabIndex        =   4
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.TextBox txtFieldIsSticky 
+      Height          =   285
+      Index           =   0
+      Left            =   3240
+      TabIndex        =   3
+      TabStop         =   0   'False
+      Top             =   1860
+      Visible         =   0   'False
+      Width           =   255
+   End
+   Begin VB.ComboBox cmbApplicationList 
+      Appearance      =   0  'Flat
+      BeginProperty Font 
+         Name            =   "Segoe UI Semibold"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   600
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   120
+      TabIndex        =   20
+      Top             =   1080
+      Width           =   4335
+   End
+   Begin MSMask.MaskEdBox mebIndexValues 
+      Height          =   255
+      HelpContextID   =   1
+      Index           =   0
+      Left            =   2880
+      TabIndex        =   0
+      Top             =   1560
+      Width           =   2775
+      _ExtentX        =   4895
+      _ExtentY        =   450
+      _Version        =   393216
+      Appearance      =   0
+      PromptInclude   =   0   'False
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Segoe UI"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      PromptChar      =   "_"
+   End
+   Begin VB.Label lblFieldDescription 
+      BackColor       =   &H00FFFFFF&
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Index           =   0
+      Left            =   120
+      TabIndex        =   13
+      Top             =   1560
+      Width           =   1695
+   End
+   Begin VB.Label lblSelectApplication 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "Select &Application"
+      BeginProperty Font 
+         Name            =   "Segoe UI"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   255
+      Left            =   120
+      TabIndex        =   2
+      Top             =   840
+      Width           =   1695
+   End
+End
+Attribute VB_Name = "frmImaging101Search"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+    '****************************
+    '*** Declarations
+    Dim con As ADODB.Connection
+    Dim rs As ADODB.Recordset
+    Dim ssql As String
+    Dim cmd As ADODB.Command
+    Dim bolErrorOccured As Boolean
+    Public bolSearchFormLoadComplete As Boolean
+    Dim intCurrentFieldIndex As Integer
+    Dim intFieldSpacing As Integer
+
+    
+    
+    
+
+Public Sub cmbApplicationList_Click()
+    
+    'Store the selected application
+    funcGetSetUserSettings "SET", "ApplicationSearchForm", cmbApplicationList
+    
+    ' Get the Application to Commit Batches to
+    Set con = New ADODB.Connection
+    con.Open RegImaging101ConnectionString
+    
+    Set rs = New ADODB.Recordset
+    Set rs.ActiveConnection = con
+    
+        
+    rs.Source = "Select ApplicationRECID,ApplicationName, MaxItemsToRetrieve from I101Applications WHERE ApplicationName= '" & cmbApplicationList.Text & "'"
+    rs.CursorLocation = adUseClient
+    rs.CursorType = adOpenDynamic
+    rs.LockType = adLockReadOnly
+    
+    con.Errors.Clear
+    
+    rs.Open
+    
+    If Not (rs.EOF Or rs.BOF) Then
+        txtApplicationRECID = rs!ApplicationRECID
+        txtApplicationName = rs!ApplicationName
+        txtMaxItemsToRetrieve = rs!MaxItemsToRetrieve
+
+    End If
+    
+    'Close connection and the recordset
+    rs.Close
+    Set rs = Nothing
+    con.Close
+    Set con = Nothing
+    
+    
+    'This timer is simply to bypass a VB Error:  "Unable to unload within this context (Error 365)"
+    ' attempting to "Destroy" the fields when switching Applications
+    'http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vbenlr98/html/vamsgldcantunloadhere.asp
+    'apparently VB won't let you unload certain objects in certain contexts like the "_Click" event
+    ' or any event or Sub that this event calls!!!
+    ' We simply enable this timer to kick in 1/10th of a second.
+    ' the Timer1 sub disables the timer and does what we need it to do.
+    Timer1.Interval = 100
+    Timer1.enabled = True
+    
+
+    
+End Sub
+
+
+
+
+Private Sub cmbApplicationList_KeyPress(KeyAscii As Integer)
+ 
+    '*** Don't want user to key in an invalid value
+        'Cancel the Keypress by setting the KeyAscii to Zero (0)
+        KeyAscii = 0
+    
+End Sub
+
+Public Sub cmdClear_Click()
+
+    Dim strHoldFieldMask As String
+    
+    For intIndex = 0 To lblFieldDescription.count - 1
+        strHoldFieldMask = mebIndexValues(intIndex).Mask
+        mebIndexValues(intIndex).Mask = ""
+        mebIndexValues(intIndex).Text = ""
+        mebIndexValues(intIndex).Mask = strHoldFieldMask
+    Next
+    'Set focus on the first input field
+    mebIndexValues(0).SetFocus
+
+End Sub
+
+Private Sub cmdFieldDropDown_Click(Index As Integer)
+
+    frmDropDownList.Caption = txtFieldName(Index)
+    frmDropDownList.funcPopulateDropDown cmbApplicationList, txtFieldName(Index), mebIndexValues(Index)
+    'Show the list in as Modal AFTER populating it.  Otherwise it stops processing and won't populate.
+    frmDropDownList.Show vbModal, Me
+    
+
+End Sub
+
+Public Sub cmdFind_Click()
+        
+        'Make SURE we execute the mebIndexValues GotFocus event to fill the THRU date it appropriate.
+        If intCurrentFieldIndex < mebIndexValues.count - 2 Then
+            mebIndexValues_GotFocus (intCurrentFieldIndex) + 1
+        End If
+        
+        
+        'Check if User is Flagged to RESET the Viewer images, etc.
+        If gsecViewResetImagesOnFind = vbChecked Then
+            '*** Unload ALL open images
+            If funcIsFormLoaded2("MainMDIForm") Then
+                Dim i As Integer
+                i = UBound(arrDisplayedPagesRetrieve)
+                
+                If i > 0 Then
+                    For i = 1 To i
+                        Unload MainMDIForm.ActiveForm
+                    Next
+                End If
+            End If
+                
+            '*** Unload Thumbnail form
+            If funcIsFormLoaded2("frmThumb") Then
+                Unload frmThumb
+            End If
+        End If
+            
+            
+        '*** Build Select Statement
+        subBuildSelectStatement
+        
+        If bolErrorOccured Then
+            Exit Sub
+        End If
+        
+        '*** Show the Retrieve form
+        frmImaging101Retrieve.Show
+        frmImaging101Retrieve.WindowState = vbNormal
+        
+        frmImaging101Retrieve.ListView1.ListItems.Clear
+        frmImaging101Retrieve.subPopulateListview
+        
+        '*** Pass Parameters to the Retrieval Form
+        frmImaging101Retrieve.txtApplicationName.Text = cmbApplicationList.Text
+        frmImaging101Retrieve.txtFilterStatement.Text = txtFilterStatement
+        
+        '*** Set the FOCUS to the Retrieval Window
+        frmImaging101Retrieve.SetFocus
+        
+End Sub
+
+
+
+Private Sub cmdHelp_Click()
+
+    'Launch the document
+    Call shelldoc(".\Imaging101Help.mht")
+
+End Sub
+
+Private Sub cmdPackage_Click()
+
+    frmImaging101Package.Show MODAL, Me
+    
+
+End Sub
+
+Private Sub Form_Activate()
+    
+    
+    
+    'Set focus on the first input field
+    '  if NO Errors occured during Input / subBuildSelectStatement
+    '  FormActivate happens each time this form gets the focus
+'    If Not bolErrorOccured Then
+'        mebIndexValues(0).SetFocus
+'    End If
+    
+    
+End Sub
+
+
+Private Sub Form_Load()
+    
+    bolSearchFormLoadComplete = False
+    
+    lblVersion.Caption = "Version " & App.Major & "." & App.Minor & "." & App.Revision
+    
+    Me.Caption = Me.Caption & " v" & App.Major & "." & App.Minor & "." & App.Revision
+
+    
+    '*** Disable buttons to prevent users from Clicking on them
+    '    prior to the form being ready
+    cmdFind.enabled = False
+    cmdClear.enabled = False
+'    If gsecRightsDocPackage = vbChecked Then
+'        cmdPackage.Visible = True
+'    Else
+'        cmdPackage.Visible = False
+'    End If
+'    cmdPackage.enabled = False
+'    cmdHelp.enabled = False
+    
+    ' Get Position settings from the registry
+    On Error Resume Next
+    Me.Top = VBGetPrivateProfileString(RegAppname, "frmImaging101Search.Top", RegFileName)
+    Me.Left = VBGetPrivateProfileString(RegAppname, "frmImaging101Search.Left", RegFileName)
+    Me.width = VBGetPrivateProfileString(RegAppname, "frmImaging101Search.Width", RegFileName)
+    Me.Height = VBGetPrivateProfileString(RegAppname, "frmImaging101Search.Height", RegFileName)
+    On Error GoTo 0
+    
+
+'''''''    ' Get Database Connections settings from the registry
+'''''''    On Error Resume Next
+'''''''    RegImaging101ConnectionType = VBGetPrivateProfileString("DATABASE", "frmImaging101Retrieve.Adodc1.ConnectionType", RegFileName)
+'''''''    RegImaging101ConnectionString = VBGetPrivateProfileString("DATABASE", "frmImaging101Retrieve.Adodc1.ConnectionString." & RegImaging101ConnectionType, RegFileName)
+'''''''    On Error GoTo 0
+    
+    On Error GoTo FORM_LOAD_ERROR
+    
+    '***************************************
+    '*** LOAD APPLICATION LIST DROP-DOWN
+    
+    Set con = New ADODB.Connection
+    con.Open RegImaging101ConnectionString
+    
+    Set rs = New ADODB.Recordset
+    Set rs.ActiveConnection = con
+    
+'*** Changed the Load to work with Security
+'    rs.Source = "Select ApplicationName, ApplicationRECID from I101Applications ORDER BY ApplicationName"
+    rs.Source = ""
+    rs.Source = rs.Source & "Select * "
+    rs.Source = rs.Source & " FROM I101Applications, I101SecurityApplications"
+    rs.Source = rs.Source & " WHERE I101Applications.ApplicationRECID = I101SecurityApplications.ApplicationRECID And I101SecurityApplications.SecurityRECID = " & gsecSecurityRECID
+    rs.Source = rs.Source & " ORDER BY ApplicationName"
+
+    rs.CursorLocation = adUseClient
+    rs.CursorType = adOpenDynamic
+    rs.LockType = adLockReadOnly
+    
+    con.Errors.Clear
+    
+    rs.Open
+    rs.MoveFirst
+    
+    For intIndex = 0 To rs.RecordCount - 1
+        cmbApplicationList.AddItem rs.Fields!ApplicationName
+        cmbApplicationList.ItemData(intIndex) = rs.Fields!ApplicationRECID
+        rs.MoveNext
+    Next
+        
+    'Close connection and the recordset
+    rs.Close
+    Set rs = Nothing
+    con.Close
+    Set con = Nothing
+
+    '****************************
+    
+    ' GET The Application this User used last
+    Dim i As Integer
+    Dim txtApplication As String
+    
+    txtApplication = funcGetSetUserSettings("GET", "ApplicationSearchForm", "")
+        ' Walk down the Application list... there was no easier way to set the
+        '   ListIndex to the right value to Trigger the "cmbApplicationList_Click" event
+        For i = 0 To cmbApplicationList.ListCount - 1
+            If txtApplication = cmbApplicationList.List(i) Then
+                ' This will Trigger the "cmbApplicationList_Click" event
+                '   to Load the list of Batches
+                cmbApplicationList.ListIndex = i
+            End If
+        Next i
+
+
+Exit Sub
+
+
+
+FORM_LOAD_ERROR:
+    If Err.Number = 3021 Then
+        MsgBox "You do not have SECURITY RIGHTS to ANY Applications!" & vbCrLf & "Please contact your System Administrator.", vbCritical, "Missing Security Rights"
+        Exit Sub
+    End If
+    result = MsgBox("FORM_LOAD_ERROR: " & Err.Number & " - " & Err.Description, vbOKCancel)
+    Err.Clear
+    If result = vbOK Then
+        'Try again
+        Resume Next
+    Else
+        Unload Me
+    End If
+End Sub
+
+Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
+    'Save Form settings to the registry, except if minimized (i.e.- Top or Left < 0)
+    If Me.Top >= 0 And Me.Left >= 0 Then
+        result = WritePrivateProfileString(RegAppname, "frmImaging101Search.Top", Me.Top, RegFileName)
+        result = WritePrivateProfileString(RegAppname, "frmImaging101Search.Left", Me.Left, RegFileName)
+        result = WritePrivateProfileString(RegAppname, "frmImaging101Search.Width", Me.width, RegFileName)
+        result = WritePrivateProfileString(RegAppname, "frmImaging101Search.Height", Me.Height, RegFileName)
+'''        Result = WritePrivateProfileString(RegAppname, "frmImaging101BatchList.Caption", Me.Caption, RegFileName)
+    End If
+
+
+End Sub
+
+
+Sub subLoadFieldDefinitions()
+
+
+    Me.enabled = False
+    
+    '*** THIS SUBROUTINE LOADS ALL THE APPLICATION FIELD DEFINITION INFORMATION
+    '***  INCLUDING FIELD FORMAT VALUES INTO AN ARRAY.
+    
+    Set con = New ADODB.Connection
+    con.Open RegImaging101ConnectionString
+    
+    Set rs = New ADODB.Recordset
+    Set rs.ActiveConnection = con
+    
+    
+    rs.Source = "Select * from I101Fields WHERE ApplicationRECID = " & txtApplicationRECID & " ORDER BY FieldOrderBatch"
+    rs.CursorLocation = adUseClient
+    rs.CursorType = adOpenDynamic
+    rs.LockType = adLockReadOnly
+    
+   On Error GoTo ERROR_TRAP
+    
+    'sql statement to select items on the drop down list
+''    ssql = "Select * from I101Fields where ApplicationRECID = " & txtApplicationRECID
+''    rs.Open ssql, Con
+    con.Errors.Clear
+    rs.Open
+    
+
+''    funcWriteToDebugLog Me.Name, rs.PageCount
+''    funcWriteToDebugLog Me.Name, rs.RecordCount
+''    funcWriteToDebugLog Me.Name, rs.AbsolutePage
+''    funcWriteToDebugLog Me.Name, rs.AbsolutePosition
+    
+    
+    rs.MoveFirst
+    
+    
+    '*** DESTROY FIELDS ARRAYS
+   On Error Resume Next
+    
+    For intIndex = 1 To lblFieldDescription.count - 1
+        Unload lblFieldDescription(intIndex)
+        Unload mebIndexValues(intIndex)
+        Unload txtBatchFieldsRECID(intIndex)
+        Unload txtFieldsRECID(intIndex)
+        Unload txtFieldDefaultValue(intIndex)
+        Unload txtFieldLowValue(intIndex)
+        Unload txtFieldHighValue(intIndex)
+        Unload txtFieldIsSticky(intIndex)
+        Unload txtFieldType(intIndex)
+        Unload txtFieldSize(intIndex)
+        Unload txtFieldName(intIndex)
+        Unload txtFieldIsRequiredForCommit(intIndex)
+        Unload txtFieldSearchCondition(intIndex)
+'        Unload txtFieldIsRequiredForSplit(intIndex)
+'        Unload txtFieldSplitBatches(intIndex)
+        Unload cmdFieldDropDown(intIndex)
+    Next
+   
+   On Error GoTo ERROR_TRAP
+        
+   intFieldSpacing = 40
+
+    'RE-Size Form Based on How many fields we Expect if more than 10
+'    If rs.RecordCount > 10 Then
+'        'Increase the size of the form by the number of Fields we expect
+        Dim intNewHeight As Integer
+        intNewHeight = lblFieldDescription(0).Top + ((lblFieldDescription(0).Height + intFieldSpacing) * rs.RecordCount) + 700
+'        If intNewHeight > 6000 Then
+            Me.Height = intNewHeight
+'        Else
+'            Me.Height = 6000
+'        End If
+'    End If
+    
+    '*** intFieldIndex allows us to Add the Second Date field to search through
+    '     we set it to (-1) to make sure we start at Zero (0) in the Loop
+    Dim intFieldIndex As Integer
+    Dim bolSecondPass As Boolean
+    
+    intFieldIndex = -1
+    
+    '*** intTabCounter allows us to number the TAB ORDER of the fields and buttons properly
+    '     we set it to (1) to make sure we start after the last FIXED/Pre-defined field
+    intTabCounter = 1
+    
+    For intIndex = 0 To rs.RecordCount - 1
+    
+        'Initialize the bolFirstPass flag to track fields we want to create duplicates of...
+        bolFirstPass = True
+
+CREATE_FIELD_OBJECTS:
+
+            intFieldIndex = intFieldIndex + 1
+        
+        '* Create Field Objects - BEGIN
+            If intFieldIndex > 0 Then
+                Load lblFieldDescription(intFieldIndex)
+'                Set lblFieldDescription(intFieldIndex).Container = Frame2
+                lblFieldDescription(intFieldIndex).Top = lblFieldDescription(intFieldIndex - 1).Top + lblFieldDescription(intFieldIndex - 1).Height + intFieldSpacing
+                lblFieldDescription(intFieldIndex).enabled = True
+                lblFieldDescription(intFieldIndex).Visible = True
+                lblFieldDescription(intFieldIndex).Caption = ""
+                
+                Load mebIndexValues(intFieldIndex)
+'                Set mebIndexValues(intFieldIndex).Container = Frame2
+                mebIndexValues(intFieldIndex).Top = mebIndexValues(intFieldIndex - 1).Top + mebIndexValues(intFieldIndex - 1).Height + intFieldSpacing
+                mebIndexValues(intFieldIndex).enabled = True
+                mebIndexValues(intFieldIndex).Visible = True
+                intTabCounter = intTabCounter + 1
+                mebIndexValues(intFieldIndex).TabStop = True
+                mebIndexValues(intFieldIndex).TabIndex = intTabCounter
+                mebIndexValues(intFieldIndex).Text = ""
+                
+                
+                Load txtBatchFieldsRECID(intFieldIndex)
+'                Set txtBatchFieldsRECID(intFieldIndex).Container = Frame2
+                txtBatchFieldsRECID(intFieldIndex).Top = txtBatchFieldsRECID(intFieldIndex - 1).Top + txtBatchFieldsRECID(intFieldIndex - 1).Height + intFieldSpacing
+                txtBatchFieldsRECID(intFieldIndex).enabled = True
+                txtBatchFieldsRECID(intFieldIndex).Visible = False
+
+                Load txtFieldsRECID(intFieldIndex)
+'                Set txtFieldsRECID(intFieldIndex).Container = Frame2
+                txtFieldsRECID(intFieldIndex).Top = txtFieldsRECID(intFieldIndex - 1).Top + txtFieldsRECID(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldsRECID(intFieldIndex).enabled = True
+                txtFieldsRECID(intFieldIndex).Visible = False
+
+                Load txtFieldDefaultValue(intFieldIndex)
+'                Set txtFieldDefaultValue(intFieldIndex).Container = Frame2
+                txtFieldDefaultValue(intFieldIndex).Top = txtFieldDefaultValue(intFieldIndex - 1).Top + txtFieldDefaultValue(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldDefaultValue(intFieldIndex).enabled = True
+                txtFieldDefaultValue(intFieldIndex).Visible = False
+                txtFieldDefaultValue(intFieldIndex).Text = ""
+                
+                Load txtFieldLowValue(intFieldIndex)
+'                Set txtFieldLowValue(intFieldIndex).Container = Frame2
+                txtFieldLowValue(intFieldIndex).Top = txtFieldLowValue(intFieldIndex - 1).Top + txtFieldLowValue(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldLowValue(intFieldIndex).enabled = True
+                txtFieldLowValue(intFieldIndex).Visible = False
+                txtFieldLowValue(intFieldIndex).Text = ""
+            
+                Load txtFieldHighValue(intFieldIndex)
+'                Set txtFieldHighValue(intFieldIndex).Container = Frame2
+                txtFieldHighValue(intFieldIndex).Top = txtFieldHighValue(intFieldIndex - 1).Top + txtFieldHighValue(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldHighValue(intFieldIndex).enabled = True
+                txtFieldHighValue(intFieldIndex).Visible = False
+                txtFieldHighValue(intFieldIndex).Text = ""
+                
+                Load txtFieldIsSticky(intFieldIndex)
+'                Set txtFieldIsSticky(intFieldIndex).Container = Frame2
+                txtFieldIsSticky(intFieldIndex).Top = txtFieldIsSticky(intFieldIndex - 1).Top + txtFieldIsSticky(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldIsSticky(intFieldIndex).enabled = True
+                txtFieldIsSticky(intFieldIndex).Visible = False
+                txtFieldIsSticky(intFieldIndex).Text = ""
+            
+                Load txtFieldType(intFieldIndex)
+'                Set txtFieldType(intFieldIndex).Container = Frame2
+                txtFieldType(intFieldIndex).Top = txtFieldType(intFieldIndex - 1).Top + txtFieldType(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldType(intFieldIndex).enabled = True
+                txtFieldType(intFieldIndex).Visible = False
+                txtFieldType(intFieldIndex).Text = ""
+            
+                Load txtFieldSize(intFieldIndex)
+'                Set txtFieldSize(intFieldIndex).Container = Frame2
+                txtFieldSize(intFieldIndex).Top = txtFieldSize(intFieldIndex - 1).Top + txtFieldSize(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldSize(intFieldIndex).enabled = True
+                txtFieldSize(intFieldIndex).Visible = False
+                txtFieldSize(intFieldIndex).Text = ""
+                
+                Load txtFieldName(intFieldIndex)
+'                Set txtFieldName(intFieldIndex).Container = Frame2
+                txtFieldName(intFieldIndex).Top = txtFieldName(intFieldIndex - 1).Top + txtFieldName(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldName(intFieldIndex).enabled = True
+                txtFieldName(intFieldIndex).Visible = False
+                txtFieldName(intFieldIndex).Text = ""
+            
+                Load txtFieldIsRequiredForCommit(intFieldIndex)
+'                Set txtFieldIsRequiredForCommit(intFieldIndex).Container = Frame2
+                txtFieldIsRequiredForCommit(intFieldIndex).Top = txtFieldIsRequiredForCommit(intFieldIndex - 1).Top + txtFieldIsRequiredForCommit(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldIsRequiredForCommit(intFieldIndex).enabled = True
+                txtFieldIsRequiredForCommit(intFieldIndex).Visible = False
+                txtFieldIsRequiredForCommit(intFieldIndex).Text = ""
+            
+            
+                Load txtFieldSearchCondition(intFieldIndex)
+'                Set txtFieldName(intFieldIndex).Container = Frame2
+                txtFieldSearchCondition(intFieldIndex).Top = txtFieldSearchCondition(intFieldIndex - 1).Top + txtFieldSearchCondition(intFieldIndex - 1).Height + intFieldSpacing
+                txtFieldSearchCondition(intFieldIndex).enabled = False
+                txtFieldSearchCondition(intFieldIndex).Visible = True
+                txtFieldSearchCondition(intFieldIndex).Text = ""
+            
+            
+                '*** Create the DROP-DOWN Button
+                Load cmdFieldDropDown(intFieldIndex)
+'                Set FieldDropDownList(intFieldIndex).Container = Frame2
+                cmdFieldDropDown(intFieldIndex).Top = mebIndexValues(intFieldIndex - 1).Top + mebIndexValues(intFieldIndex - 1).Height + intFieldSpacing
+                cmdFieldDropDown(intFieldIndex).enabled = True
+                intTabCounter = intTabCounter + 1
+                cmdFieldDropDown(intFieldIndex).TabStop = True
+                cmdFieldDropDown(intFieldIndex).TabIndex = intTabCounter
+                'Make the DropDownList button VISIBLE only if Checked for the current field
+                If rs.Fields!FieldDropDownList = vbChecked Then
+                    cmdFieldDropDown(intFieldIndex).Visible = True
+                Else
+                    cmdFieldDropDown(intFieldIndex).Visible = False
+                End If
+                
+            Else 'intFieldIndex <=  0
+            
+                'Make the DropDownList button VISIBLE only if Checked for the current field
+                If rs.Fields!FieldDropDownList = vbChecked Then
+                    cmdFieldDropDown(intFieldIndex).Visible = True
+                Else
+                    cmdFieldDropDown(intFieldIndex).Visible = False
+                End If
+            
+            End If
+        '* Create Field Objects - END
+
+        
+        'Clear any Values carried over from the first (Master) field
+        lblFieldDescription(intFieldIndex) = ""
+        mebIndexValues(intFieldIndex).Mask = ""
+        mebIndexValues(intFieldIndex).Format = ""
+        mebIndexValues(intFieldIndex).Text = ""
+    
+        '* Assign Field Values
+        txtFieldsRECID(intFieldIndex) = rs.Fields!FieldsRECID
+        If (IsNull(rs.Fields!FieldNameForInput)) Or (rs.Fields!FieldNameForInput <> "") Then
+            lblFieldDescription(intFieldIndex) = rs.Fields!FieldNameForInput
+        Else
+            lblFieldDescription(intFieldIndex) = rs.Fields!FieldName
+        End If
+        
+        '* If setting up a Range Field - append the text "(Thru)"
+        If bolFirstPass = False Then
+            lblFieldDescription(intFieldIndex) = lblFieldDescription(intFieldIndex) & " (Thru)"
+        End If
+        
+        If Not IsNull(rs.Fields!FieldMask) Then mebIndexValues(intFieldIndex).Mask = rs.Fields!FieldMask
+        If Not IsNull(rs.Fields!FieldFormat) Then mebIndexValues(intFieldIndex).Format = rs.Fields!FieldFormat
+        
+        If Not IsNull(rs.Fields!FieldDefaultValue) Then txtFieldDefaultValue(intFieldIndex) = rs.Fields!FieldDefaultValue
+        If Not IsNull(rs.Fields!FieldLowValue) Then txtFieldLowValue(intFieldIndex) = rs.Fields!FieldLowValue
+        If Not IsNull(rs.Fields!FieldHighValue) Then txtFieldHighValue(intFieldIndex) = rs.Fields!FieldHighValue
+        If Not IsNull(rs.Fields!FieldIsSticky) Then txtFieldIsSticky(intFieldIndex) = rs.Fields!FieldIsSticky
+        If Not IsNull(rs.Fields!FieldType) Then txtFieldType(intFieldIndex) = rs.Fields!FieldType
+        If Not IsNull(rs.Fields!FieldSize) Then txtFieldSize(intFieldIndex) = rs.Fields!FieldSize
+        If Not IsNull(rs.Fields!FieldName) Then txtFieldName(intFieldIndex) = rs.Fields!FieldName
+        If Not IsNull(rs.Fields!FieldSearchCondition) Then txtFieldSearchCondition(intFieldIndex) = rs.Fields!FieldSearchCondition
+        If Not IsNull(rs.Fields!FieldIsRequiredForCommit) Then
+            txtFieldIsRequiredForCommit(intFieldIndex) = rs.Fields!FieldIsRequiredForCommit
+'            If txtFieldIsRequiredForCommit(intFieldIndex) = vbChecked Then
+'                'Show that field is required!
+'                lblFieldDescription(intFieldIndex) = lblFieldDescription(intFieldIndex)
+'                lblFieldDescription(intFieldIndex).ForeColor = vbRed
+'            Else
+'                lblFieldDescription(intFieldIndex).ForeColor = vbNormal
+'            End If
+        End If
+        
+        If txtFieldType(intFieldIndex).Text = "Date" And bolFirstPass = True Then
+            'Increase Form Height to account for this extra field
+            Me.Height = Me.Height + lblFieldDescription(0).Height
+            'Make sure we don't create it more than once.
+            bolFirstPass = False
+            'Create another Date field identical to this one
+            GoTo CREATE_FIELD_OBJECTS
+        End If
+            
+        rs.MoveNext
+    Next
+    
+    'Close connection and the recordset
+    rs.Close
+    Set rs = Nothing
+    con.Close
+    Set con = Nothing
+    
+    Me.Show
+    
+    DoEvents
+    
+    '*** Re-enable buttons
+    cmdFind.enabled = True
+    cmdClear.enabled = True
+    cmdPackage.enabled = False
+    cmdHelp.enabled = True
+    bolSearchFormLoadComplete = True
+    Me.enabled = True
+    
+    
+Exit Sub
+    
+ERROR_TRAP:
+    ' 94 = Invalid use of Null
+    If Err.Number = 94 Then
+        Err.Clear
+        Resume Next
+    End If
+    result = MsgBox("LoadFieldFormats - Error: " & Err.Number & " - " & Err.Description, vbOK)
+    Err.Clear
+End Sub
+
+
+Private Sub Form_Resize()
+
+    Dim dblMinWidth As Double
+    
+    If Me.WindowState <> vbMinimized Then
+        dblMinWidth = cmdFieldDropDown(0).Left + cmdFieldDropDown(0).width + 220
+        If Me.width < dblMinWidth Then
+            Me.width = dblMinWidth
+        End If
+        
+        Frame1.width = Me.width
+        picImaging101Logo.Left = Me.ScaleWidth - picImaging101Logo.width - 10
+        lblVersion.Left = picImaging101Logo.Left
+    End If
+    
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+
+    If funcIsFormLoaded2("frmThumb") Then
+        Unload frmThumb
+        Set frmThumb = Nothing
+    End If
+    
+    If funcIsFormLoaded2("frmAnnotate") Then
+        Unload frmAnnotate
+        Set frmAnnotate = Nothing
+    End If
+    
+    If funcIsFormLoaded2("MainMDIForm") Then
+        Unload MainMDIForm
+        Set MainMDIForm = Nothing
+    End If
+    
+    If funcIsFormLoaded2("frmImaging101Retrieve") Then
+        Unload frmImaging101Retrieve
+        Set frmImaging101Retrieve = Nothing
+    End If
+        
+    
+    'Only Show Menu when unloading if NOT in SYSTRAY mode.
+    If Not bolSysTrayActive Then
+        frmMainMenu.Show
+        frmMainMenu.WindowState = vbNormal
+        frmMainMenu.SetFocus
+    End If
+    
+    Set frmImaging101Search = Nothing
+    
+    Screen.MousePointer = vbDefault
+    
+End Sub
+
+Private Sub mebIndexValues_Change(Index As Integer)
+
+'    'Check to see if something was entered into the FIRST Index Field
+'    If Trim(mebIndexValues(Index).Text) <> "" Then
+'        cmdPackage.enabled = True
+'    Else
+'        cmdPackage.enabled = False
+'    End If
+
+End Sub
+
+Private Sub mebIndexValues_GotFocus(Index As Integer)
+
+'    '*** Re-enable buttons
+'    cmdFind.Enabled = True
+'    cmdClear.Enabled = True
+'    cmdHelp.Enabled = True
+'    bolSearchFormLoadComplete = True
+    
+    
+    '* If Date is Blank, then Errors - Copy the Date to the Thru field
+    If (txtFieldType(Index) = "Date") And (Trim(mebIndexValues(Index).Text) = "") Then
+        If InStr(1, lblFieldDescription(Index), "(Thru)") > 0 Then
+            '* By design, the Thru date field is always immediatelly after the From
+            mebIndexValues(Index).Text = mebIndexValues(Index - 1).Text
+        End If
+    End If
+    
+    '*** Highlight the Field
+    mebIndexValues.item(Index).SelStart = 0
+'    mebIndexValues.item(Index).SelLength = Len(mebIndexValues.item(Index).Text)
+    mebIndexValues.item(Index).SelLength = 99
+    
+    intCurrentFieldIndex = Index
+    
+End Sub
+
+Private Sub mebIndexValues_KeyPress(Index As Integer, KeyAscii As Integer)
+    
+    If bolSearchFormLoadComplete <> True Then
+        Exit Sub
+    End If
+    
+    
+    'Catch Enter key
+    If KeyAscii = 13 Then
+        cmdFind_Click
+    End If
+
+'    If KeyAscii = Asc("[") And frmImaging101Retrieve.Visible = True Then
+'        frmImaging101Search.SetFocus
+'        'Cancel the Keypress by setting the KeyAscii to Zero (0)
+'        KeyAscii = 0
+'    End If
+'
+'    If KeyAscii = Asc("]") And frmImaging101Retrieve.Visible = True Then
+'        frmImaging101Retrieve.SetFocus
+'        'Cancel the Keypress by setting the KeyAscii to Zero (0)
+'        KeyAscii = 0
+'    End If
+'
+'    If KeyAscii = Asc("\") And MainMDIForm.Visible = True Then
+'        MainMDIForm.SetFocus
+'        'Cancel the Keypress by setting the KeyAscii to Zero (0)
+'        KeyAscii = 0
+'    End If
+    
+
+
+End Sub
+
+Private Sub mebIndexValues_KeyUp(Index As Integer, KeyCode As Integer, Shift As Integer)
+
+'    'Check to see if something was entered into the FIRST Index Field
+'    If Trim(mebIndexValues(Index).Text) <> "" Then
+'        cmdPackage.Enabled = True
+'    Else
+'        cmdPackage.Enabled = False
+'    End If
+
+End Sub
+
+Private Sub mebIndexValues_Validate(Index As Integer, Cancel As Boolean)
+    
+    On Error GoTo ERROR_TRAP
+    
+    If (txtFieldType(Index) = "Date") And (Trim(mebIndexValues(Index).Text) <> "") Then
+        '* Remove the "Prompt" characters
+        strDateFormatted = Replace(Trim(mebIndexValues(Index).FormattedText), "_", "")
+        strDateFormatted = CDate(strDateFormatted)
+    End If
+            
+            
+            
+Exit Sub
+
+ERROR_TRAP:
+
+    If Err.Number = 13 Then
+        result = MsgBox("Field Format Error: " & Err.Number & " - " & Err.Description & vbCrLf & "PLEASE CHECK YOUR INPUT.", vbOK)
+        Me.SetFocus
+        mebIndexValues(Index).SetFocus
+        bolErrorOccured = True
+        Err.Clear
+        'Prevent moving to the next field
+        Cancel = True
+        'Force the Field to Highlight
+        mebIndexValues_GotFocus (Index)
+'        Exit Sub
+    End If
+
+End Sub
+
+Private Sub Timer1_Timer()
+    'This timer is simply to bypass a VB Error:  "Unable to unload within this context (Error 365)"
+    ' attempting to "Destroy" the fields when switching Applications
+    'http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vbenlr98/html/vamsgldcantunloadhere.asp
+    'apparently VB won't let you unload certain objects in certain contexts like the "_Click" event
+    ' or any event or Sub that this event calls!!!
+    
+    'Disable this timer now
+    Timer1.enabled = False
+    
+
+    'Now load the new field definitiona
+    Call subLoadFieldDefinitions
+    
+    '*** Re-enable buttons
+    cmdFind.enabled = True
+    cmdClear.enabled = True
+    cmdHelp.enabled = True
+    bolSearchFormLoadComplete = True
+    
+End Sub
+
+Private Sub subBuildSelectStatement()
+'    Dim txtFilterStatement As String   'Jacob - 12/22/1006: Changed to invisible Text field on Form
+    Dim txtFieldsList As String
+    Dim txtOrderByList As String
+    Dim strDateFormatted As String
+    Dim intViewDeletedDocuments As Integer
+    
+    On Error GoTo ERROR_TRAP
+    
+    '*** Clear variables
+    txtFilterStatement = ""
+    txtFieldsList = ""
+    txtOrderByList = ""
+    
+    'RESET the Error occured flag
+    bolErrorOccured = False
+    
+    
+    '*** Prepare the WHERE Clause and List of Fields
+    For intIndex = 0 To lblFieldDescription.count - 1
+        ' Check for FileRoom
+        If Trim(mebIndexValues(intIndex)) <> "" Then
+            If Trim(txtFilterStatement) <> "" Then
+                txtFilterStatement = txtFilterStatement & " AND "
+            End If
+            
+            If txtFieldType(intIndex) = "Date" Then
+                '* Remove the "Prompt" characters
+                strDateFormatted = Replace(Trim(mebIndexValues(intIndex).FormattedText), "_", "")
+                strDateFormatted = CDate(strDateFormatted)
+                
+                '* If FieldType is "Date" Handle Date From and Thru scenario
+                If InStr(1, lblFieldDescription(intIndex), "(Thru)") = 0 Then
+                    txtFilterStatement = txtFilterStatement & txtFieldName(intIndex) & " >= '" & strDateFormatted & "' "
+                Else
+                    txtFilterStatement = txtFilterStatement & txtFieldName(intIndex) & " <= '" & strDateFormatted & "' "
+                End If
+            Else
+                '* If NOT Date, do a  search based on the FieldSearchCondition
+                
+                '*** 2008-11-13 - Jacob: Added to allow User-defined Search Conditions
+                Dim strFieldSearchCondition As String
+                Dim strFieldWildCardBegin As String
+                Dim strFieldWildCardEnd As String
+                
+                Select Case txtFieldSearchCondition(intIndex)
+                    Case "Contains"
+                        strFieldSearchCondition = "LIKE"
+                        strFieldWildCardBegin = "%"
+                        strFieldWildCardEnd = "%"
+                    Case "Begins With"
+                        strFieldSearchCondition = "LIKE"
+                        strFieldWildCardBegin = ""
+                        strFieldWildCardEnd = "%"
+                    Case Else
+                        strFieldSearchCondition = txtFieldSearchCondition(intIndex)
+                        strFieldWildCardBegin = ""
+                        strFieldWildCardEnd = ""
+                
+                End Select
+                
+                
+                '*** 2004-04-08 - Jacob: Added the REPLACE to prevent errors if Single Apostrophe was allowed in field.
+'                txtFilterStatement = txtFilterStatement & txtFieldName(intIndex) & " LIKE '%" & Replace(Trim(mebIndexValues(intIndex).FormattedText), "'", "''") + "%' "
+                '*** 2008-11-13 - Jacob: Modified to allow User-defined Search Conditions
+                txtFilterStatement = txtFilterStatement & txtFieldName(intIndex) & " " & strFieldSearchCondition & " '" & strFieldWildCardBegin & Replace(Trim(mebIndexValues(intIndex).FormattedText), "'", "''") & strFieldWildCardEnd & "' "
+                
+            
+            End If
+        End If
+        
+        'Only Add the Fields to the FieldList & Order-by if NOT the "Thru" field
+        If InStr(1, lblFieldDescription(intIndex), "(Thru)") = 0 Then
+            ' Append Field Names
+            txtFieldsList = txtFieldsList & ", " & txtFieldName(intIndex)
+            ' Create OrderBy list
+            If intIndex < 5 Then
+                If txtOrderByList <> "" Then
+                    txtOrderByList = txtOrderByList & ", "
+                End If
+                txtOrderByList = txtOrderByList & txtFieldName(intIndex)
+            End If
+        End If
+
+    Next
+    
+    'Build the WHERE Clause
+    If Trim(txtFilterStatement) <> "" Then
+        txtFilterStatement = " WHERE " & txtFilterStatement
+        'Check if user selected to View Documents flagged as Deleted
+        intViewDeletedDocuments = frmImaging101Retrieve.chkViewDeletedDocuments.Value
+        If intViewDeletedDocuments = vbChecked Then
+            txtFilterStatement = txtFilterStatement & " AND ( DocumentLocked = 'D' ) "
+        Else
+            'Don't Display Deleted Documents
+            txtFilterStatement = txtFilterStatement & " AND ( DocumentLocked <> 'D' OR DocumentLocked = '' OR DocumentLocked is NULL ) "
+        End If
+    Else
+        'Get out of here if NO Search items submitted
+        'set the bolErrorOccured flag so the retrieve window is not loaded or populated
+        bolErrorOccured = True
+        Exit Sub
+    End If
+    
+    '*** WE ARE SETTING THE frmImaging101Retrieve (Search Results List) FORM CONTROLS
+    Dim strSelectRange As String
+    
+    frmImaging101Retrieve.Adodc1.ConnectionString = RegImaging101ConnectionString
+   
+    If txtMaxItemsToRetrieve = "0" Then
+        strSelectRange = "SELECT "
+    Else
+        strSelectRange = "SELECT TOP " & txtMaxItemsToRetrieve
+    End If
+    
+   frmImaging101Retrieve.Adodc1.RecordSource = strSelectRange & " " & _
+                        " DocumentRECID , " & _
+                        " DocumentLocked, DocumentLockedBy, DocumentLockedDate, DocumentLockExpDate " & _
+                        txtFieldsList & ", " & _
+                        " DocumentImages, DocumentPages, DocumentBatchName, " & _
+                        " BatchBoxNumber, " & _
+                        " DocumentScanDate, DocumentScanUserID, " & _
+                        " DocumentIndexDate , DocumentIndexUserID, " & _
+                        " DocumentCommitDate , DocumentCommitUserID " & _
+                        " FROM " & txtApplicationName & _
+                        txtFilterStatement & _
+                        " ORDER BY " & txtOrderByList
+
+   
+    funcWriteToDebugLog Me.name, ""
+    funcWriteToDebugLog Me.name, frmImaging101Retrieve.Adodc1.RecordSource
+    funcWriteToDebugLog Me.name, ""
+   
+   frmImaging101Retrieve.Adodc1.Refresh
+   
+   frmImaging101Retrieve.lblItemsFound.Caption = frmImaging101Retrieve.Adodc1.Recordset.RecordCount
+   
+''   frmImaging101Retrieve.chkViewDocDetails_Click
+''    frmImaging101Retrieve.SetFocus
+    
+   
+Exit Sub
+    
+ERROR_TRAP:
+    ' 94 = Invalid use of Null
+    If Err.Number = 94 Then
+        Err.Clear
+        Resume Next
+    End If
+    
+    If Err.Number = 13 Then
+        result = MsgBox("Field Format Error: " & Err.Number & " - " & Err.Description & vbCrLf & "PLEASE CHECK YOUR INPUT.", vbOK)
+        Me.SetFocus
+        mebIndexValues(intIndex).SetFocus
+        bolErrorOccured = True
+        Err.Clear
+        Exit Sub
+    End If
+
+    result = MsgBox("LoadFieldFormats - Error: " & Err.Number & " - " & Err.Description, vbOK)
+    Err.Clear
+    
+End Sub
+
+
